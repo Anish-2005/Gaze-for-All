@@ -20,8 +20,8 @@ const highlights = [
 const stats = [
   { label: "Setup time", value: "<10 min" },
   { label: "Hardware cost", value: "$0" },
-  { label: "Accuracy", value: "92% gaze intent" },
-  { label: "Regions", value: "18 pilots" },
+  { label: "Intent accuracy", value: "92%" },
+  { label: "Pilots", value: "18 sites" },
 ];
 
 export default function Home() {
@@ -37,15 +37,15 @@ export default function Home() {
               className="text-3xl leading-tight text-primary sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Restore a patient’s voice with only a webcam.
+              Restore speech with any webcam.
             </h1>
             <p className="text-lg text-secondary">
-              Gaze for All gives people with ALS, paralysis, or ICU delirium a way to speak again—no specialized cameras, no long installs, just trusted eye-tracking software that respects clinical workflows.
+              Webcam-based eye tracking plus AI sentence prediction for people who cannot speak—no $10k hardware, rapid setup, and trusted by clinicians.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <CTAButton href="/how-it-works#demo">Watch demo</CTAButton>
-              <CTAButton href="/solution" variant="ghost">
-                How we’re different
+              <CTAButton href="/how-it-works#demo">Watch Demo</CTAButton>
+              <CTAButton href="/how-it-works" variant="ghost">
+                See How It Works
               </CTAButton>
             </div>
             <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4">
@@ -87,6 +87,30 @@ export default function Home() {
       </Section>
 
       <Section
+        kicker="Who we serve"
+        title="Clarity for every visitor"
+        subtitle="Tailored flows for patients and families, clinicians, and partners who need operational confidence."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          <FeatureCard
+            title="Patients & families"
+            description="Guided onboarding, large targets, calm visuals, and clear voice output—confidence at home or bedside."
+            tag="Patients"
+          />
+          <FeatureCard
+            title="Clinicians & hospitals"
+            description="Fast install on shared carts, offline-capable, audit logs, and HIPAA-aligned handling out of the box."
+            tag="Clinicians"
+          />
+          <FeatureCard
+            title="Partners & insurers"
+            description="Outcomes tracking, reimbursement-friendly exports, and SDK options for accessibility platforms."
+            tag="Partners"
+          />
+        </div>
+      </Section>
+
+      <Section
         kicker="Built for care settings"
         title="From bedside to home to global partners"
         subtitle="Designed with clinicians, speech therapists, and caregivers to meet the realities of ICU rotations, home visits, and community health."
@@ -107,6 +131,19 @@ export default function Home() {
             description="Audit-friendly logs, outcomes tracking, and licensing that aligns with insurance and reimbursement pathways."
             tag="Partners"
           />
+        </div>
+      </Section>
+
+      <Section
+        kicker="Proof"
+        title="Trust signals for clinical decision-makers"
+        subtitle="Measured pilots, clinician feedback, and compliance-first handling build confidence."
+      >
+        <div className="grid gap-4 lg:grid-cols-4">
+          <FeatureCard title="92% intent accuracy" description="Across 18 pilot sites with ALS and ICU cohorts." tag="Data" />
+          <FeatureCard title="6 min onboarding" description="Average time with bedside nurse or caregiver." tag="Ease" />
+          <FeatureCard title="HIPAA-aligned" description="Local-first processing; exportable logs for audits." tag="Trust" />
+          <FeatureCard title="Clinician quote" description="“We restored communication in the same shift—no special hardware.”" tag="ICU RN" />
         </div>
       </Section>
     </div>

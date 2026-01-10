@@ -28,7 +28,7 @@ export function Navbar() {
             <Link href="/" className="text-lg font-semibold leading-tight text-primary">
               Gaze for All
             </Link>
-            <p className="text-xs text-secondary">Voice through gaze — anywhere</p>
+            <p className="text-xs text-secondary">Restore speech with any webcam.</p>
           </div>
         </div>
 

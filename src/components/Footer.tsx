@@ -5,6 +5,9 @@ const footerLinks = [
   { label: "Solution", href: "/solution" },
   { label: "How it works", href: "/how-it-works" },
   { label: "Impact", href: "/impact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Accessibility", href: "/accessibility" },
 ];
 
 export function Footer() {
@@ -36,6 +39,13 @@ export function Footer() {
               <p>hello@gaze-for-all.org</p>
               <p>+1 (555) 011-2040</p>
               <p>Boston | Remote-first</p>
+            </div>
+          </div>
+          <div>
+            <p className="mb-2 text-xs uppercase tracking-[0.14em] text-secondary">Language</p>
+            <div className="space-y-1 text-sm text-secondary">
+              <p>English (US)</p>
+              <p>Español (coming soon)</p>
             </div>
           </div>
         </div>

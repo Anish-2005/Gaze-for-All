@@ -4,6 +4,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 const heading = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({
             <main id="main" className="flex-1 pt-8 sm:pt-10 lg:pt-12">{children}</main>
             <Footer />
           </div>
+          <BackToTop />
         </div>
       </body>
     </html>

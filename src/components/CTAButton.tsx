@@ -12,7 +12,7 @@ export function CTAButton({ href, children, variant = "primary" }: CTAButtonProp
     "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[rgb(var(--accent))] focus-visible:ring-offset-[rgb(var(--bg))]";
   const styles =
     variant === "primary"
-      ? "bg-[rgb(var(--accent))] text-white shadow-ring hover:brightness-105"
+      ? "bg-[rgb(var(--accent))] text-[rgb(12,18,32)] shadow-ring hover:brightness-105"
       : "border border-[rgb(var(--border))] text-primary hover:border-[rgb(var(--accent))] hover:text-primary";
 
   return (
