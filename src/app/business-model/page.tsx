@@ -12,7 +12,7 @@ export default function BusinessModelPage() {
   const models = [
     {
       title: "Freemium for individuals",
-      description: "Core features free to keep access universal for patients and families.",
+      description: "Core stays free so patients and families are never priced out.",
       tag: "B2C",
     },
     {
@@ -22,7 +22,7 @@ export default function BusinessModelPage() {
     },
     {
       title: "Insurance & government reimbursement",
-      description: "Outcomes reporting, session logs, and documentation to support coverage pathways.",
+      description: "Outcomes reporting and documentation that align with coverage pathways.",
       tag: "Reimbursement",
     },
     {
@@ -36,13 +36,40 @@ export default function BusinessModelPage() {
     <div className="space-y-8">
       <Section
         kicker="Business model"
-        title="Access for patients, sustainability for partners"
-        subtitle="We keep individual use free while offering hospital-grade controls and reimbursement-ready reporting."
+        title="Compassionate capitalism: access first, sustainable growth"
+        subtitle="Freemium keeps speech accessible; paid tiers fund support, compliance, and scale."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {models.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
+        </div>
+      </Section>
+
+      <Section
+        kicker="Why freemium is ethical here"
+        title="Those who can pay help those who cannot"
+        subtitle="Hospitals, payers, and partners fund the platform so individuals always have a free path."
+      >
+        <div className="grid gap-4 sm:grid-cols-3">
+          <FeatureCard title="Equity first" description="Free access for individuals prevents income from blocking speech." tag="Access" />
+          <FeatureCard title="Institutional value" description="Hospitals pay for controls, support, and compliance they require." tag="Sustain" />
+          <FeatureCard title="Partner ecosystems" description="SDK and licensing extend impact without adding hardware cost." tag="Scale" />
+        </div>
+      </Section>
+
+      <Section
+        kicker="Unit economics"
+        title="Sustainable without harming access"
+        subtitle="Software margins fund support and research; volume lowers per-site costs over time."
+      >
+        <div className="glass rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-secondary text-sm space-y-2">
+          <p className="text-primary text-lg font-semibold">Logic, not just pricing</p>
+          <ul className="space-y-1.5">
+            <li>• Free users grow usage data and trust, creating demand for paid clinical controls.</li>
+            <li>• Site licenses and reimbursements cover support, compliance, and uptime.</li>
+            <li>• SDK licensing spreads fixed R&D across partners, lowering marginal costs.</li>
+          </ul>
         </div>
       </Section>
     </div>
