@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   description:
     "Software-only gaze communication for ALS, paralysis, and ICU patients. Runs on any webcam to restore a voice—affordable, secure, and deployable in minutes.",
   metadataBase: new URL("https://gaze-for-all.org"),
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "Gaze for All | Voice without hardware",
     description:

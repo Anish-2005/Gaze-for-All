@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { CTAButton } from "./CTAButton";
@@ -23,7 +24,9 @@ export function Navbar() {
     <header className="sticky top-0 z-30 backdrop-blur-md">
       <nav className="glass mt-6 flex items-center justify-between rounded-2xl px-5 py-4 sm:px-7" aria-label="Primary">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-[rgb(var(--surface))] ring-1 ring-[rgb(var(--border))] shadow-ring flex items-center justify-center text-lg font-bold text-primary">G</div>
+          <div className="h-10 w-10 rounded-xl bg-[rgb(var(--surface))] ring-1 ring-[rgb(var(--border))] shadow-ring flex items-center justify-center">
+            <Image src="/logo.svg" alt="Gaze for All logo" width={32} height={32} priority />
+          </div>
           <div>
             <Link href="/" className="text-lg font-semibold leading-tight text-primary">
               Gaze for All
