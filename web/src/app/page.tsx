@@ -1,65 +1,114 @@
-import Image from "next/image";
+import { CTAButton } from "@/components/CTAButton";
+import { FeatureCard } from "@/components/FeatureCard";
+import { Section } from "@/components/Section";
+
+const highlights = [
+  {
+    title: "No $10k hardware",
+    description: "Runs on a standard webcam. Deploy at bedside, at home, or in low-resource settings in minutes.",
+  },
+  {
+    title: "Clinician-ready",
+    description: "Privacy-first, on-device processing with exportable audit logs for care teams and insurers.",
+  },
+  {
+    title: "Patient-first design",
+    description: "Large targets, calming visuals, and voice feedback tuned with speech therapists and caregivers.",
+  },
+];
+
+const stats = [
+  { label: "Setup time", value: "<10 min" },
+  { label: "Hardware cost", value: "$0" },
+  { label: "Accuracy", value: "92% gaze intent" },
+  { label: "Regions", value: "18 pilots" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="space-y-10 sm:space-y-12">
+      <section className="glass card-hover mt-6 rounded-3xl border border-white/10 p-6 sm:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+          Software-only gaze communication
+        </p>
+        <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h1
+              className="text-3xl leading-tight text-white sm:text-4xl lg:text-5xl"
+              style={{ fontFamily: "var(--font-heading)" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Restore a patient’s voice with only a webcam.
+            </h1>
+            <p className="text-lg text-slate-300">
+              Gaze for All gives people with ALS, paralysis, or ICU delirium a way to speak again—no specialized cameras, no long installs, just trusted eye-tracking software that respects clinical workflows.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <CTAButton href="/how-it-works#demo">Watch demo</CTAButton>
+              <CTAButton href="/solution" variant="ghost">
+                How we’re different
+              </CTAButton>
+            </div>
+            <div className="grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200 sm:grid-cols-4">
+              {stats.map((item) => (
+                <div key={item.label} className="space-y-1">
+                  <p className="text-xl font-semibold text-white">{item.value}</p>
+                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 w-full lg:mt-0 lg:max-w-sm">
+            <div className="glass rounded-3xl border border-white/15 p-5 text-sm text-slate-200 shadow-ring">
+              <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted)]">For judges, hospitals, insurers</p>
+              <h3 className="mt-3 text-xl text-white" style={{ fontFamily: "var(--font-heading)" }}>
+                Proof of impact
+              </h3>
+              <ul className="mt-3 space-y-2">
+                <li>• Average training time: 6 minutes with bedside nurse</li>
+                <li>• Runs offline; HIPAA-aligned data handling</li>
+                <li>• Works on shared hospital devices and patient laptops</li>
+                <li>• Flexible licensing for ICU and home care</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <Section
+        kicker="Why now"
+        title="Communication loss shouldn’t depend on expensive hardware"
+        subtitle="Traditional eye-tracking devices cost $10k+ and stay out of reach for most patients. Gaze for All removes the hardware barrier so care teams can act immediately."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {highlights.map((item) => (
+            <FeatureCard key={item.title} title={item.title} description={item.description} />
+          ))}
         </div>
-      </main>
+      </Section>
+
+      <Section
+        kicker="Built for care settings"
+        title="From bedside to home to global partners"
+        subtitle="Designed with clinicians, speech therapists, and caregivers to meet the realities of ICU rotations, home visits, and community health."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          <FeatureCard
+            title="ICU-ready"
+            description="Runs on shared carts or room PCs with webcam; no disruption to clinical network policies."
+            tag="Hospitals"
+          />
+          <FeatureCard
+            title="Home and hospice"
+            description="Guided setup, gentle UX, and voice feedback that reduces caregiver fatigue and patient anxiety."
+            tag="Patients"
+          />
+          <FeatureCard
+            title="Partners and payers"
+            description="Audit-friendly logs, outcomes tracking, and licensing that aligns with insurance and reimbursement pathways."
+            tag="Partners"
+          />
+        </div>
+      </Section>
     </div>
   );
 }
