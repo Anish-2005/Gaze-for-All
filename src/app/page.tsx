@@ -24,27 +24,6 @@ const stats = [
   { label: "Pilots", value: "18 sites" },
 ];
 
-const audienceCards = [
-  {
-    title: "Patients & families",
-    description: "Guided onboarding, large targets, calm visuals, and clear voice output at home or bedside.",
-    cta: "Start free",
-    href: "/how-to-use",
-  },
-  {
-    title: "Clinicians & hospitals",
-    description: "Fast install on shared carts, offline-capable, audit logs, and HIPAA-aligned handling.",
-    cta: "See hospital setup",
-    href: "/how-it-works",
-  },
-  {
-    title: "Partners & insurers",
-    description: "Outcomes tracking, reimbursement-friendly exports, and SDK options for accessibility platforms.",
-    cta: "Talk to us",
-    href: "/business-model",
-  },
-];
-
 const trustItems = [
   {
     title: "92% intent accuracy",

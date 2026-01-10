@@ -11,22 +11,22 @@ export const metadata: Metadata = {
 const steps = [
   {
     title: "Position the camera",
-    description: "Place the webcam at eye level and ensure soft, even lighting. No special mounts needed.",
+    description: "Put the webcam near eye level with gentle light. No special mounts.",
     tag: "Step 1",
   },
   {
     title: "Quick calibration",
-    description: "Follow the on-screen dots for under a minute. A nurse or family member can guide if needed.",
+    description: "Follow the dots for under a minute. A nurse or family member can guide.",
     tag: "Step 2",
   },
   {
     title: "Pick a phrase",
-    description: "Choose simple phrases or custom needs; Gaze for All predicts likely intent to speed selection.",
+    description: "Choose a phrase like “yes,” “pain,” or a custom need. The system suggests likely options.",
     tag: "Step 3",
   },
   {
     title: "Hear your voice",
-    description: "The system speaks aloud and shows text so patients and caregivers know it landed.",
+    description: "It speaks aloud and shows text so everyone knows it landed.",
     tag: "Step 4",
   },
 ];
@@ -37,14 +37,15 @@ export default function HowToUsePage() {
       <Section
         kicker="How to use"
         title="Four steps to a reassuring first message"
-        subtitle="Designed for patients and caregivers—no technical background required."
+        subtitle="Designed for patients and caregivers—no technical words needed."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {steps.map((step) => (
             <FeatureCard key={step.title} title={step.title} description={step.description} tag={step.tag} />
           ))}
         </div>
-        <div className="mt-4">
+        <div className="mt-4 space-y-3">
+          <p className="text-primary font-semibold">If eye movement is possible, communication is possible.</p>
           <CTAButton href="/how-it-works">See technology details</CTAButton>
         </div>
       </Section>
