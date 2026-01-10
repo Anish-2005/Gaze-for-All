@@ -40,20 +40,41 @@ export default function ProblemPage() {
     <div className="space-y-8">
       <Section
         kicker="Problem"
-        title="Patients lose their voice when specialized hardware isn’t reachable"
-        subtitle="People with ALS, paralysis, stroke, or ICU delirium can lose the ability to speak within days. Traditional eye-tracking devices are expensive, scarce, and slow to deploy. Families and clinicians are left improvising while patients remain unheard."
+        title="When speech stops, waiting for hardware is not an option"
+        subtitle="ALS, stroke, paralysis, and ICU patients need a way to speak within hours, not weeks. Dedicated devices cost five figures and arrive after the critical window."
       >
-        <div className="grid gap-4 sm:grid-cols-2">
-          {barriers.map((item) => (
-            <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
-          ))}
+        <div className="grid gap-4 lg:grid-cols-3">
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5 text-secondary">
+            <p className="text-primary text-xl" style={{ fontFamily: "var(--font-heading)" }}>
+              Cost comparison
+            </p>
+            <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+              <div className="space-y-2 rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.04)] p-3">
+                <p className="text-primary font-semibold">Traditional</p>
+                <p>$10k–$20k hardware</p>
+                <p>Procurement weeks</p>
+                <p>Specialized cameras</p>
+              </div>
+              <div className="space-y-2 rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--success),0.07)] p-3">
+                <p className="text-primary font-semibold">Gaze for All</p>
+                <p>$0 existing webcam</p>
+                <p>Under 10 minutes</p>
+                <p>Runs on current PCs</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-2 grid gap-4 sm:grid-cols-2">
+            {barriers.map((item) => (
+              <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
+            ))}
+          </div>
         </div>
       </Section>
 
       <Section
         kicker="What this means"
         title="Silence has clinical and human costs"
-        subtitle="Without rapid communication, pain goes unreported, consent is unclear, and care plans slow down. Anxiety increases for patients, families, and care teams." 
+        subtitle="Without rapid communication, pain goes unreported, consent is unclear, and care plans slow down."
       >
         <div className="grid gap-4 sm:grid-cols-3">
           <FeatureCard
@@ -70,6 +91,30 @@ export default function ProblemPage() {
             title="Inequitable access"
             description="Rural, low-income, and understaffed hospitals rarely receive specialized devices, deepening disparities."
             tag="Access"
+          />
+        </div>
+      </Section>
+
+      <Section
+        kicker="Why existing solutions fail"
+        title="Hardware dependency keeps people silent"
+        subtitle="High cost, fragile supply chains, and setup friction block communication when time matters."
+      >
+        <div className="grid gap-4 sm:grid-cols-3">
+          <FeatureCard
+            title="Cost"
+            description="$10k–$20k devices are out of reach for most patients and many hospitals."
+            tag="Barrier"
+          />
+          <FeatureCard
+            title="Hardware dependency"
+            description="Special cameras and mounts add procurement delays and maintenance overhead."
+            tag="Delay"
+          />
+          <FeatureCard
+            title="Deployment friction"
+            description="Installations often need IT approvals, vendor support, and staff training that slow first use."
+            tag="Friction"
           />
         </div>
       </Section>

@@ -9,26 +9,26 @@ export const metadata: Metadata = {
 };
 
 export default function ProductPage() {
-  const core = [
+  const free = [
     {
       title: "Webcam gaze control",
       description: "Accurate eye tracking on standard webcams with adaptive calibration.",
-      tag: "Core",
+      tag: "Free",
     },
     {
       title: "On-device privacy",
       description: "Local processing by default with optional encrypted sync for preferences.",
-      tag: "Core",
+      tag: "Free",
     },
     {
       title: "Large target UI",
       description: "High-contrast buttons, dwell selection, and audio cues that reduce fatigue.",
-      tag: "Core",
+      tag: "Free",
     },
     {
       title: "Multilingual text-to-speech",
       description: "Clear voice output for patient reassurance and clinician confirmation.",
-      tag: "Core",
+      tag: "Free",
     },
   ];
 
@@ -55,15 +55,33 @@ export default function ProductPage() {
     },
   ];
 
+  const enterprise = [
+    {
+      title: "Site controls",
+      description: "SSO, audit exports, and admin policies for hospitals and agencies.",
+      tag: "Enterprise",
+    },
+    {
+      title: "Support & SLAs",
+      description: "Coverage for 24/7 care teams with escalation and training options.",
+      tag: "Enterprise",
+    },
+    {
+      title: "Data residency options",
+      description: "Configurable storage regions and retention to align with compliance needs.",
+      tag: "Enterprise",
+    },
+  ];
+
   return (
     <div className="space-y-8">
       <Section
         kicker="Product"
         title="Choose what you need, start instantly"
-        subtitle="Core is free for individuals. Pro unlocks AI prediction, voice cloning, and cloud sync for teams, hospitals, and partners."
+        subtitle="Free for individuals. Pro for teams. Enterprise-ready for hospitals and partners."
       >
         <div className="grid gap-4 sm:grid-cols-2">
-          {core.map((item) => (
+          {free.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
         </div>
@@ -78,6 +96,45 @@ export default function ProductPage() {
           {pro.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
+        </div>
+      </Section>
+
+      <Section
+        kicker="Enterprise-ready"
+        title="For hospitals, agencies, and payers"
+        subtitle="Controls and support needed for continuous clinical use."
+      >
+        <div className="grid gap-4 sm:grid-cols-3">
+          {enterprise.map((item) => (
+            <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        kicker="Comparison"
+        title="Free vs Pro"
+        subtitle="Pick what matches your setting."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 text-sm text-secondary">
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4">
+            <p className="text-primary text-lg font-semibold">Free</p>
+            <ul className="mt-2 space-y-1.5">
+              <li>• Webcam gaze, local processing</li>
+              <li>• Large-target UI with voice feedback</li>
+              <li>• Multilingual speech</li>
+              <li>• Personal use, no cost</li>
+            </ul>
+          </div>
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4">
+            <p className="text-primary text-lg font-semibold">Pro</p>
+            <ul className="mt-2 space-y-1.5">
+              <li>• Everything in Free</li>
+              <li>• AI prediction and personalization</li>
+              <li>• Cloud sync and team sharing</li>
+              <li>• Analytics and exports for reimbursement</li>
+            </ul>
+          </div>
         </div>
       </Section>
     </div>

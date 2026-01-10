@@ -22,7 +22,7 @@ const steps = [
   },
   {
     title: "AI prediction",
-    description: "ONNX models run locally to predict intent with minimal latency, learning user patterns over time.",
+    description: "Lightweight models run locally to predict intent with minimal latency and adapt to each user.",
     tag: "Step 3",
   },
   {
@@ -38,7 +38,7 @@ export default function HowItWorksPage() {
       <Section
         kicker="How it works"
         title="From gaze to voice in four steps"
-        subtitle="Gaze for All keeps computation local for speed and privacy, with optional cloud sync for preferences and shared care notes."
+        subtitle="Computation stays local for speed and privacy; cloud is optional for preferences and care notes."
         id="demo"
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -74,6 +74,30 @@ export default function HowItWorksPage() {
             title="Low friction"
             description="No dongles, no firmware. A browser-like experience with clear voice confirmations for every action."
             tag="Practical"
+          />
+        </div>
+      </Section>
+
+      <Section
+        kicker="Privacy & safety"
+        title="Protect patients while they speak"
+        subtitle="Local inference, no raw video storage, and clear consent keep data safe."
+      >
+        <div className="grid gap-4 sm:grid-cols-3">
+          <FeatureCard
+            title="Local by default"
+            description="Eye tracking and intent prediction run on the device; connectivity is optional for sync."
+            tag="Private"
+          />
+          <FeatureCard
+            title="No raw video stored"
+            description="We do not store or stream raw video; only necessary telemetry is kept when enabled."
+            tag="Safe"
+          />
+          <FeatureCard
+            title="Consent-first"
+            description="Role-based access and export controls keep clinicians, patients, and families aligned."
+            tag="Clear"
           />
         </div>
       </Section>

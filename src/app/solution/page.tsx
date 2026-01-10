@@ -37,8 +37,8 @@ export default function SolutionPage() {
     <div className="space-y-8">
       <Section
         kicker="Solution"
-        title="A software-only communicator that starts with the webcam you already have"
-        subtitle="Gaze for All pairs computer vision, gaze mapping, and AI intent prediction to turn any webcam into a reliable communication channel."
+        title="A software-only communicator that replaces $10k hardware"
+        subtitle="Gaze for All turns any webcam into a reliable voice channel—no specialized devices, no procurement lag."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {pillars.map((item) => (
@@ -55,25 +55,37 @@ export default function SolutionPage() {
 
       <Section
         kicker="Why it matters"
-        title="Remove the cost barrier, keep clinical trust"
-        subtitle="No shipments, no specialized lenses, and fewer IT tickets. Hospitals can serve more patients, insurers see lower device costs, and families get relief sooner."
+        title="Remove hardware, keep trust"
+        subtitle="Use the webcam already in the room. Local-first privacy and clear audit trails keep clinicians confident."
       >
         <div className="grid gap-4 sm:grid-cols-3">
           <FeatureCard
             title="Cost drops to $0 hardware"
-            description="Use existing webcams and monitors; only software licensing remains, with freemium access for individuals."
+            description="Existing webcams replace specialized cameras; individuals keep access with freemium."
             tag="Affordable"
           />
           <FeatureCard
-            title="Trusted for care"
-            description="On-device processing, role-based access, and exportable logs keep clinicians and auditors confident."
+            title="Built for care teams"
+            description="On-device processing with role-based access and exportable logs for compliance."
             tag="Clinical"
           />
           <FeatureCard
-            title="Scales globally"
-            description="Works in home care, ICUs, and community clinics where specialized eye-trackers will never arrive in time."
+            title="Deploy anywhere"
+            description="Works in home care, ICUs, and community clinics where shipments cannot keep up."
             tag="Global"
           />
+        </div>
+      </Section>
+
+      <Section
+        kicker="What Gaze is not"
+        title="Clarity builds trust"
+        subtitle="Setting expectations keeps clinicians and families aligned."
+      >
+        <div className="grid gap-4 sm:grid-cols-3">
+          <FeatureCard title="Not hardware" description="No proprietary cameras or mounts—use the webcams you already own." tag="Software" />
+          <FeatureCard title="Not experimental" description="Built from proven CV and accessibility patterns with ongoing pilot data." tag="Ready" />
+          <FeatureCard title="Not hospital-only" description="Runs in homes, hospices, rehab, and community clinics." tag="Flexible" />
         </div>
       </Section>
     </div>

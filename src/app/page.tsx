@@ -5,15 +5,15 @@ import { Section } from "@/components/Section";
 const highlights = [
   {
     title: "No $10k hardware",
-    description: "Runs on a standard webcam. Deploy at bedside, at home, or in low-resource settings in minutes.",
+    description: "Runs on a webcam. Deploy bedside or at home in minutes.",
   },
   {
     title: "Clinician-ready",
-    description: "Privacy-first, on-device processing with exportable audit logs for care teams and insurers.",
+    description: "Local-first processing with exportable audit logs for care teams.",
   },
   {
     title: "Patient-first design",
-    description: "Large targets, calming visuals, and voice feedback tuned with speech therapists and caregivers.",
+    description: "Large targets, calm visuals, and voice feedback tuned with therapists.",
   },
 ];
 
@@ -72,20 +72,20 @@ export default function Home() {
   return (
     <div className="space-y-10 sm:space-y-12">
       <section className="glass card-hover mt-6 rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-6 sm:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
-          Software-only gaze communication
-        <div className="grid gap-4 lg:grid-cols-3">
-          {audienceCards.map((card) => (
-            <div key={card.title} className="glass h-full rounded-2xl border border-[rgb(var(--border))] p-5">
-              <FeatureCard title={card.title} description={card.description} tag="" />
-              <div className="mt-3">
-                <CTAButton href={card.href} variant="ghost">
-                  {card.cta}
-                </CTAButton>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className="grid gap-6 lg:grid-cols-5 xl:grid-cols-6">
+          <div className="lg:col-span-3 xl:col-span-2 space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Software-only gaze communication</p>
+            <h1 className="text-3xl sm:text-4xl font-semibold text-primary" style={{ fontFamily: "var(--font-heading)" }}>
+              Restore a voice with just a webcam
+            </h1>
+            <p className="text-secondary text-base">
+              Runs on the camera you already have. Under 10 minutes from install to the first spoken phrase.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <CTAButton href="#demo">Watch demo</CTAButton>
+              <CTAButton href="/how-it-works" variant="ghost">
+                See how it works
+              </CTAButton>
             </div>
             <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4">
               {stats.map((item) => (
@@ -96,21 +96,20 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5 xl:col-span-4 mt-4 w-full lg:mt-0">
-            <div className="glass rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-sm text-primary shadow-ring space-y-3">
+          <div className="lg:col-span-2 xl:col-span-3 w-full">
+            <div className="glass rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-sm text-primary shadow-ring space-y-3" id="demo">
               <p className="text-xs uppercase tracking-[0.18em] text-secondary">See it in action</p>
               <div className="aspect-video overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)]" aria-label="Product demo placeholder">
                 <div className="flex h-full items-center justify-center text-secondary">Demo video</div>
               </div>
               <div className="pt-1 space-y-2 text-secondary">
                 <p className="text-primary" style={{ fontFamily: "var(--font-heading)" }}>
-                  Proof of impact
+                  What you get
                 </p>
                 <ul className="space-y-1.5">
-                  <li>• Average training time: 6 minutes with bedside nurse</li>
-                  <li>• Runs offline; HIPAA-aligned data handling</li>
-                  <li>• Works on shared hospital devices and patient laptops</li>
-                  <li>• Flexible licensing for ICU and home care</li>
+                  <li>• Works offline; HIPAA-aligned handling</li>
+                  <li>• First message in minutes with caregiver guidance</li>
+                  <li>• Runs on shared hospital devices and personal laptops</li>
                 </ul>
               </div>
             </div>
@@ -118,10 +117,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="glass rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="space-y-1">
+            <p className="text-xs uppercase tracking-[0.14em] text-secondary">Problem</p>
+            <p className="text-primary font-semibold">$10k hardware leaves patients silent and waiting.</p>
+          </div>
+          <div className="space-y-1">
+            <p className="text-xs uppercase tracking-[0.14em] text-secondary">Solution</p>
+            <p className="text-primary font-semibold">Webcam-only gaze turns any device into a voice channel.</p>
+          </div>
+          <div className="space-y-1">
+            <p className="text-xs uppercase tracking-[0.14em] text-secondary">Cost difference</p>
+            <p className="text-primary font-semibold">$0 hardware, minutes to deploy, built for hospitals and homes.</p>
+          </div>
+        </div>
+      </section>
+
       <Section
         kicker="Why now"
-        title="Communication loss shouldn’t depend on expensive hardware"
-        subtitle="Traditional eye-tracking devices cost $10k+ and stay out of reach for most patients. Gaze for All removes the hardware barrier so care teams can act immediately."
+        title="Communication should not depend on specialized hardware"
+        subtitle="Eye-tracking devices cost $10k+ and arrive too late. Gaze for All removes the hardware barrier so care teams can act fast."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((item) => (
@@ -164,12 +180,12 @@ export default function Home() {
       <Section
         kicker="Who we serve"
         title="Clarity for every visitor"
-        subtitle="Tailored flows for patients and families, clinicians, and partners who need operational confidence."
+        subtitle="Patients and families, clinicians, and partners each get a direct path."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           <FeatureCard
             title="Patients & families"
-            description="Guided onboarding, large targets, calm visuals, and clear voice output—confidence at home or bedside."
+            description="Guided onboarding, large targets, calm visuals, and clear voice output at home or bedside."
             tag="Patients"
           />
           <FeatureCard
@@ -188,7 +204,7 @@ export default function Home() {
       <Section
         kicker="Built for care settings"
         title="From bedside to home to global partners"
-        subtitle="Designed with clinicians, speech therapists, and caregivers to meet the realities of ICU rotations, home visits, and community health."
+        subtitle="Designed with clinicians, therapists, and caregivers for ICUs, homes, and community clinics."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           <FeatureCard
