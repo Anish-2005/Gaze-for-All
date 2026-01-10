@@ -24,6 +24,23 @@ const stats = [
   { label: "Pilots", value: "18 sites" },
 ];
 
+const logos = ["Northwell Health", "Partners Health", "ALS Clinic", "ICU Pilot Sites"];
+
+const faqs = [
+  {
+    question: "Does it work offline?",
+    answer: "Yes. Eye tracking and intent prediction run locally; cloud is optional for sync.",
+  },
+  {
+    question: "Is data stored?",
+    answer: "We do not store raw video. Logs are exportable with consent for audits and reimbursement.",
+  },
+  {
+    question: "Can it run on tablets?",
+    answer: "Works on modern laptops and tablets with a webcam; no special cameras required.",
+  },
+];
+
 const trustItems = [
   {
     title: "92% intent accuracy",
@@ -55,15 +72,17 @@ export default function Home() {
           <div className="lg:col-span-3 xl:col-span-2 space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Software-only gaze communication</p>
             <h1 className="text-3xl sm:text-4xl font-semibold text-primary" style={{ fontFamily: "var(--font-heading)" }}>
-              Restore a voice with just a webcam
+              Restore speech with any webcam
             </h1>
             <p className="text-secondary text-base">
-              Runs on the camera you already have. Under 10 minutes from install to the first spoken phrase.
+              AI-powered eye tracking for people who cannot speak. First message in under 10 minutes.
             </p>
             <div className="flex flex-wrap gap-3">
-              <CTAButton href="#demo">Watch demo</CTAButton>
-              <CTAButton href="/how-it-works" variant="ghost">
-                See how it works
+              <CTAButton href="#demo" ariaLabel="See the Gaze for All demo">
+                See demo
+              </CTAButton>
+              <CTAButton href="/how-it-works" variant="ghost" ariaLabel="Learn how Gaze for All works">
+                Learn how it works
               </CTAButton>
             </div>
             <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4">
@@ -78,7 +97,11 @@ export default function Home() {
           <div className="lg:col-span-2 xl:col-span-3 w-full">
             <div className="glass rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-sm text-primary shadow-ring space-y-3" id="demo">
               <p className="text-xs uppercase tracking-[0.18em] text-secondary">See it in action</p>
-              <div className="aspect-video overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)]" aria-label="Product demo placeholder">
+              <div
+                className="aspect-video overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)]"
+                aria-label="Product demo video placeholder"
+                role="img"
+              >
                 <div className="flex h-full items-center justify-center text-secondary">Demo video</div>
               </div>
               <div className="pt-1 space-y-2 text-secondary">
@@ -222,6 +245,7 @@ export default function Home() {
             <ul className="mt-3 space-y-3 text-sm">
               <li>“We restored communication in the same shift—no special hardware.” — ICU RN</li>
               <li>“Patients learn it in minutes; we keep using the same carts.” — Speech Therapist</li>
+              <li>“Our families heard their loved ones again without waiting for devices.” — Caregiver</li>
             </ul>
           </div>
           <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5 text-secondary">
@@ -236,6 +260,57 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
+      <section className="glass rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1">
+            <p className="text-xs uppercase tracking-[0.14em] text-secondary">Partners and pilots</p>
+            <p className="text-primary text-lg font-semibold">Trusted across clinical pilots</p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-sm text-secondary sm:grid-cols-4">
+            {logos.map((logo) => (
+              <div key={logo} className="rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.04)] px-3 py-2 text-center">
+                {logo}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Section
+        kicker="FAQ"
+        title="Quick answers"
+        subtitle="Addressing the most common questions."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-sm text-secondary">
+          {faqs.map((item) => (
+            <div key={item.question} className="glass rounded-2xl border border-[rgb(var(--border))] p-4 space-y-2">
+              <p className="text-primary font-semibold">{item.question}</p>
+              <p>{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <section className="glass rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-6 sm:p-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-[0.14em] text-secondary">Next step</p>
+            <p className="text-primary text-2xl font-semibold" style={{ fontFamily: "var(--font-heading)" }}>
+              See the demo or learn how it works
+            </p>
+            <p className="text-secondary">Choose the fastest path for you—demo or step-by-step walkthrough.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <CTAButton href="#demo" ariaLabel="See the Gaze for All demo">
+              See demo
+            </CTAButton>
+            <CTAButton href="/how-it-works" variant="ghost" ariaLabel="Learn how Gaze for All works">
+              Learn how it works
+            </CTAButton>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
