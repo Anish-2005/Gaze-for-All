@@ -21,7 +21,7 @@ export function FeatureCard({ title, description, tag, icon }: FeatureCardProps)
     >
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(var(--accent),0.12)] text-lg text-primary ring-1 ring-[rgb(var(--border))]">
-          {icon ? icon : <span aria-hidden>★</span>}
+          {icon ? icon : <span aria-hidden>✦</span>}
         </div>
         <div className="space-y-2">
           <div className="flex items-center gap-2">

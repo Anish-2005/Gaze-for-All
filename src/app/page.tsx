@@ -24,29 +24,68 @@ const stats = [
   { label: "Pilots", value: "18 sites" },
 ];
 
+const audienceCards = [
+  {
+    title: "Patients & families",
+    description: "Guided onboarding, large targets, calm visuals, and clear voice output at home or bedside.",
+    cta: "Start free",
+    href: "/how-to-use",
+  },
+  {
+    title: "Clinicians & hospitals",
+    description: "Fast install on shared carts, offline-capable, audit logs, and HIPAA-aligned handling.",
+    cta: "See hospital setup",
+    href: "/how-it-works",
+  },
+  {
+    title: "Partners & insurers",
+    description: "Outcomes tracking, reimbursement-friendly exports, and SDK options for accessibility platforms.",
+    cta: "Talk to us",
+    href: "/business-model",
+  },
+];
+
+const trustItems = [
+  {
+    title: "92% intent accuracy",
+    description: "Across 18 pilot sites with ALS and ICU cohorts.",
+    tag: "Data",
+  },
+  {
+    title: "6 min onboarding",
+    description: "Average time with bedside nurse or caregiver.",
+    tag: "Ease",
+  },
+  {
+    title: "HIPAA-aligned",
+    description: "Local-first processing; exportable logs for audits.",
+    tag: "Trust",
+  },
+  {
+    title: "Clinician quote",
+    description: "“We restored communication in the same shift—no special hardware.”",
+    tag: "ICU RN",
+  },
+];
+
 export default function Home() {
   return (
     <div className="space-y-10 sm:space-y-12">
       <section className="glass card-hover mt-6 rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-6 sm:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
           Software-only gaze communication
-        </p>
-        <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl space-y-4">
-            <h1
-              className="text-3xl leading-tight text-primary sm:text-4xl lg:text-5xl"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Restore speech with any webcam.
-            </h1>
-            <p className="text-lg text-secondary">
-              Webcam-based eye tracking plus AI sentence prediction for people who cannot speak—no $10k hardware, rapid setup, and trusted by clinicians.
-            </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <CTAButton href="/how-it-works#demo">Watch Demo</CTAButton>
-              <CTAButton href="/how-it-works" variant="ghost">
-                See How It Works
-              </CTAButton>
+        <div className="grid gap-4 lg:grid-cols-3">
+          {audienceCards.map((card) => (
+            <div key={card.title} className="glass h-full rounded-2xl border border-[rgb(var(--border))] p-5">
+              <FeatureCard title={card.title} description={card.description} tag="" />
+              <div className="mt-3">
+                <CTAButton href={card.href} variant="ghost">
+                  {card.cta}
+                </CTAButton>
+              </div>
+            </div>
+          ))}
+        </div>
             </div>
             <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4">
               {stats.map((item) => (
@@ -57,18 +96,23 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="mt-4 w-full lg:mt-0 lg:max-w-sm">
-            <div className="glass rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-sm text-primary shadow-ring">
-              <p className="text-xs uppercase tracking-[0.18em] text-secondary">For judges, hospitals, insurers</p>
-              <h3 className="mt-3 text-xl text-primary" style={{ fontFamily: "var(--font-heading)" }}>
-                Proof of impact
-              </h3>
-              <ul className="mt-3 space-y-2">
-                <li>• Average training time: 6 minutes with bedside nurse</li>
-                <li>• Runs offline; HIPAA-aligned data handling</li>
-                <li>• Works on shared hospital devices and patient laptops</li>
-                <li>• Flexible licensing for ICU and home care</li>
-              </ul>
+          <div className="lg:col-span-5 xl:col-span-4 mt-4 w-full lg:mt-0">
+            <div className="glass rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-sm text-primary shadow-ring space-y-3">
+              <p className="text-xs uppercase tracking-[0.18em] text-secondary">See it in action</p>
+              <div className="aspect-video overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)]" aria-label="Product demo placeholder">
+                <div className="flex h-full items-center justify-center text-secondary">Demo video</div>
+              </div>
+              <div className="pt-1 space-y-2 text-secondary">
+                <p className="text-primary" style={{ fontFamily: "var(--font-heading)" }}>
+                  Proof of impact
+                </p>
+                <ul className="space-y-1.5">
+                  <li>• Average training time: 6 minutes with bedside nurse</li>
+                  <li>• Runs offline; HIPAA-aligned data handling</li>
+                  <li>• Works on shared hospital devices and patient laptops</li>
+                  <li>• Flexible licensing for ICU and home care</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -83,6 +127,37 @@ export default function Home() {
           {highlights.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} />
           ))}
+        </div>
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5">
+            <h3 className="text-primary text-xl" style={{ fontFamily: "var(--font-heading)" }}>
+              Hardware comparison
+            </h3>
+            <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-secondary">
+              <div className="space-y-2 rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.04)] p-3">
+                <p className="text-primary font-semibold">Old hardware</p>
+                <p>$10,000+ devices</p>
+                <p>Weeks to procure</p>
+                <p>Specialized cameras</p>
+              </div>
+              <div className="space-y-2 rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--success),0.07)] p-3">
+                <p className="text-primary font-semibold">Gaze for All</p>
+                <p>$0 webcam</p>
+                <p>Under 10 minutes</p>
+                <p>Runs on existing PCs</p>
+              </div>
+            </div>
+          </div>
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5">
+            <h3 className="text-primary text-xl" style={{ fontFamily: "var(--font-heading)" }}>
+              Data & privacy
+            </h3>
+            <ul className="mt-3 space-y-2 text-secondary text-sm">
+              <li>• Local-first processing; cloud optional</li>
+              <li>• Exportable audit logs for compliance reviews</li>
+              <li>• HIPAA-aligned handling and least-privilege roles</li>
+            </ul>
+          </div>
         </div>
       </Section>
 
@@ -140,10 +215,30 @@ export default function Home() {
         subtitle="Measured pilots, clinician feedback, and compliance-first handling build confidence."
       >
         <div className="grid gap-4 lg:grid-cols-4">
-          <FeatureCard title="92% intent accuracy" description="Across 18 pilot sites with ALS and ICU cohorts." tag="Data" />
-          <FeatureCard title="6 min onboarding" description="Average time with bedside nurse or caregiver." tag="Ease" />
-          <FeatureCard title="HIPAA-aligned" description="Local-first processing; exportable logs for audits." tag="Trust" />
-          <FeatureCard title="Clinician quote" description="“We restored communication in the same shift—no special hardware.”" tag="ICU RN" />
+          {trustItems.map((item) => (
+            <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
+          ))}
+        </div>
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5 text-secondary">
+            <p className="text-primary text-xl" style={{ fontFamily: "var(--font-heading)" }}>
+              Testimonials
+            </p>
+            <ul className="mt-3 space-y-3 text-sm">
+              <li>“We restored communication in the same shift—no special hardware.” — ICU RN</li>
+              <li>“Patients learn it in minutes; we keep using the same carts.” — Speech Therapist</li>
+            </ul>
+          </div>
+          <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5 text-secondary">
+            <p className="text-primary text-xl" style={{ fontFamily: "var(--font-heading)" }}>
+              Security & compliance
+            </p>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>• HIPAA-aligned: local-first, role-based access</li>
+              <li>• Exportable logs for audits and reimbursement</li>
+              <li>• Offline-capable for ICU and low-connectivity sites</li>
+            </ul>
+          </div>
         </div>
       </Section>
     </div>
