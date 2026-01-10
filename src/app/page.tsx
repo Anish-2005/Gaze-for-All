@@ -1,27 +1,31 @@
 import { CTAButton } from "@/components/CTAButton";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
+import { ArrowDown, BadgeDollarSign, Building2, Crosshair, Laptop, ShieldCheck, Smile, Timer } from "lucide-react";
 
 const highlights = [
   {
     title: "No $10k hardware",
     description: "Runs on a webcam. Deploy bedside or at home in minutes.",
+    icon: Laptop,
   },
   {
     title: "Clinician-ready",
     description: "Local-first processing with exportable audit logs for care teams.",
+    icon: ShieldCheck,
   },
   {
     title: "Patient-first design",
     description: "Large targets, calm visuals, and voice feedback tuned with therapists.",
+    icon: Smile,
   },
 ];
 
 const stats = [
-  { label: "Setup time", value: "<10 min" },
-  { label: "Hardware cost", value: "$0" },
-  { label: "Intent accuracy", value: "92%" },
-  { label: "Pilots", value: "18 sites" },
+  { label: "Setup time", value: "<10 min", icon: Timer },
+  { label: "Hardware cost", value: "$0", icon: BadgeDollarSign },
+  { label: "Intent accuracy", value: "92%", icon: Crosshair },
+  { label: "Pilots", value: "18 sites", icon: Building2 },
 ];
 
 const logos = ["Northwell Health", "Partners Health", "ALS Clinic", "ICU Pilot Sites"];
@@ -85,13 +89,22 @@ export default function Home() {
                 Learn how it works
               </CTAButton>
             </div>
-            <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4" id="proof">
               {stats.map((item) => (
                 <div key={item.label} className="space-y-1">
                   <p className="text-xl font-semibold text-primary">{item.value}</p>
-                  <p className="text-xs uppercase tracking-[0.14em] text-secondary">{item.label}</p>
+                  <p className="text-xs uppercase tracking-[0.14em] text-secondary flex items-center gap-1">
+                    <item.icon aria-hidden className="h-3.5 w-3.5" />
+                    {item.label}
+                  </p>
                 </div>
               ))}
+            </div>
+            <div className="flex items-center gap-2 text-sm text-secondary">
+              <ArrowDown aria-hidden className="h-4 w-4" />
+              <a className="hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--accent))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--surface))] rounded-md px-1" href="#trust">
+                Scroll to proof
+              </a>
             </div>
           </div>
           <div className="lg:col-span-2 xl:col-span-3 w-full">
@@ -143,7 +156,12 @@ export default function Home() {
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((item) => (
-            <FeatureCard key={item.title} title={item.title} description={item.description} />
+            <FeatureCard
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              icon={<item.icon aria-hidden className="h-5 w-5 text-secondary" />}
+            />
           ))}
         </div>
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
@@ -182,24 +200,39 @@ export default function Home() {
       <Section
         kicker="Who we serve"
         title="Clarity for every visitor"
-        subtitle="Patients and families, clinicians, and partners each get a direct path."
+        subtitle="Patients, hospitals, and partners each get a direct path."
       >
         <div className="grid gap-4 lg:grid-cols-3">
-          <FeatureCard
-            title="Patients & families"
-            description="Guided onboarding, large targets, calm visuals, and clear voice output at home or bedside."
-            tag="Patients"
-          />
-          <FeatureCard
-            title="Clinicians & hospitals"
-            description="Fast install on shared carts, offline-capable, audit logs, and HIPAA-aligned handling out of the box."
-            tag="Clinicians"
-          />
-          <FeatureCard
-            title="Partners & insurers"
-            description="Outcomes tracking, reimbursement-friendly exports, and SDK options for accessibility platforms."
-            tag="Partners"
-          />
+          <div className="glass h-full rounded-2xl border border-[rgb(var(--border))] p-5 space-y-3">
+            <FeatureCard
+              title="Patients & caregivers"
+              description="Guided onboarding, large targets, calm visuals, and clear voice output at home or bedside."
+              tag="Patients"
+            />
+            <CTAButton href="/how-to-use" ariaLabel="See how to use Gaze for All" variant="ghost">
+              See how to use it
+            </CTAButton>
+          </div>
+          <div className="glass h-full rounded-2xl border border-[rgb(var(--border))] p-5 space-y-3">
+            <FeatureCard
+              title="Hospitals & clinicians"
+              description="Fast install on shared carts, offline-capable, audit logs, and HIPAA-aligned handling out of the box."
+              tag="Clinicians"
+            />
+            <CTAButton href="/for-hospitals" ariaLabel="View hospital readiness" variant="ghost">
+              View hospital readiness
+            </CTAButton>
+          </div>
+          <div className="glass h-full rounded-2xl border border-[rgb(var(--border))] p-5 space-y-3">
+            <FeatureCard
+              title="Partners & insurers"
+              description="Outcomes tracking, reimbursement-friendly exports, and SDK options for accessibility platforms."
+              tag="Partners"
+            />
+            <CTAButton href="/business-model" ariaLabel="See partnership options" variant="ghost">
+              See partnership options
+            </CTAButton>
+          </div>
         </div>
       </Section>
 
@@ -231,6 +264,7 @@ export default function Home() {
         kicker="Proof"
         title="Trust signals for clinical decision-makers"
         subtitle="Measured pilots, clinician feedback, and compliance-first handling build confidence."
+        id="trust"
       >
         <div className="grid gap-4 lg:grid-cols-4">
           {trustItems.map((item) => (
