@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const heading = Space_Grotesk({
+const heading = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const sans = Manrope({
+const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans-base",
   display: "swap",
@@ -57,9 +57,9 @@ export default function RootLayout({
           <div className="absolute inset-0 pointer-events-none" aria-hidden>
             <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(99,196,255,0.12),transparent_35%)]" />
           </div>
-          <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-12 sm:px-6 lg:px-10">
+          <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-5 pb-14 sm:px-8 lg:px-12">
             <Navbar />
-            <main id="main" className="flex-1 pt-6 sm:pt-8">{children}</main>
+            <main id="main" className="flex-1 pt-8 sm:pt-10 lg:pt-12">{children}</main>
             <Footer />
           </div>
         </div>

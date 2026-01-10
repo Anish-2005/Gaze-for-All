@@ -13,17 +13,17 @@ export type SectionProps = {
 };
 
 const fadeIn = {
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 12 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.55, ease: "easeOut" },
+  transition: { duration: 0.6, ease: "easeOut" },
 };
 
 export function Section({ kicker, title, subtitle, children, className = "", id }: SectionProps) {
   return (
     <motion.section
       id={id}
-      className={`mb-14 flex flex-col gap-5 rounded-3xl border border-white/10 bg-[color:var(--surface)]/60 p-6 sm:p-8 ${className}`}
+      className={`mb-14 flex flex-col gap-5 rounded-3xl border border-white/10 bg-[color:var(--surface)]/80 p-6 sm:p-8 ${className}`}
       {...fadeIn}
     >
       <div className="space-y-3">

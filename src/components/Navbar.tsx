@@ -22,7 +22,7 @@ export function Navbar() {
     <header className="sticky top-0 z-30 backdrop-blur-md">
       <nav className="glass mt-4 flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6" aria-label="Primary">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-white/10 ring-1 ring-white/10 shadow-ring flex items-center justify-center text-lg font-bold text-white">G</div>
+          <div className="h-10 w-10 rounded-xl bg-[color:var(--surface)] ring-1 ring-white/10 shadow-ring flex items-center justify-center text-lg font-bold text-white">G</div>
           <div>
             <Link href="/" className="text-lg font-semibold leading-tight text-white">
               Gaze for All
@@ -33,7 +33,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-slate-100 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 text-slate-100 lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={open}
           onClick={() => setOpen((prev) => !prev)}

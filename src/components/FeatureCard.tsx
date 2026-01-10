@@ -13,11 +13,11 @@ export type FeatureCardProps = {
 export function FeatureCard({ title, description, tag, icon }: FeatureCardProps) {
   return (
     <motion.div
-      className="glass card-hover h-full rounded-2xl border border-white/10 p-4 sm:p-6"
-      initial={{ opacity: 0, y: 14 }}
+      className="glass card-hover h-full rounded-2xl border border-white/12 p-4 sm:p-6"
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-lg text-white ring-1 ring-white/10">
