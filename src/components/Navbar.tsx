@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CTAButton } from "./CTAButton";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { label: "Problem", href: "/problem" },
@@ -22,12 +23,12 @@ export function Navbar() {
     <header className="sticky top-0 z-30 backdrop-blur-md">
       <nav className="glass mt-6 flex items-center justify-between rounded-2xl px-5 py-4 sm:px-7" aria-label="Primary">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-[color:var(--surface)] ring-1 ring-white/10 shadow-ring flex items-center justify-center text-lg font-bold text-white">G</div>
+          <div className="h-10 w-10 rounded-xl bg-[rgb(var(--surface))] ring-1 ring-[rgb(var(--border))] shadow-ring flex items-center justify-center text-lg font-bold text-primary">G</div>
           <div>
-            <Link href="/" className="text-lg font-semibold leading-tight text-white">
+            <Link href="/" className="text-lg font-semibold leading-tight text-primary">
               Gaze for All
             </Link>
-            <p className="text-xs text-slate-300">Voice through gaze — anywhere</p>
+            <p className="text-xs text-secondary">Voice through gaze — anywhere</p>
           </div>
         </div>
 
@@ -47,27 +48,30 @@ export function Navbar() {
         </button>
 
         <div className="hidden items-center gap-6 lg:flex">
-          <ul className="flex items-center gap-4 text-sm text-slate-200">
+          <ul className="flex items-center gap-4 text-sm text-secondary">
             {navItems.map((item) => (
               <li key={item.href}>
-                <Link className="rounded-md px-2 py-1 transition-colors hover:text-white" href={item.href}>
+                <Link className="rounded-md px-2 py-1 transition-colors hover:text-primary" href={item.href}>
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <CTAButton href="/how-it-works#demo">Watch demo</CTAButton>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <CTAButton href="/how-it-works#demo">Watch demo</CTAButton>
+          </div>
         </div>
       </nav>
 
       {open ? (
         <div className="lg:hidden">
-          <div className="mt-2 space-y-1 rounded-2xl border border-white/10 bg-[color:var(--surface)] p-4 text-sm text-slate-200">
+          <div className="mt-2 space-y-1 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-4 text-sm text-secondary">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white"
+                className="block rounded-lg px-2 py-2 hover:bg-[rgba(var(--accent),0.08)] hover:text-primary"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -77,6 +81,9 @@ export function Navbar() {
               <CTAButton href="/how-it-works#demo" variant="primary">
                 Watch demo
               </CTAButton>
+            </div>
+            <div className="pt-1">
+              <ThemeToggle compact />
             </div>
           </div>
         </div>

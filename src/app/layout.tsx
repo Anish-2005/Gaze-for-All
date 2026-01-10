@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
@@ -45,15 +46,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${heading.variable} ${sans.variable} antialiased bg-[color:var(--bg)] text-[color:var(--color-foreground)]`}
+        className={`${heading.variable} ${sans.variable} antialiased bg-[rgb(var(--bg))] text-[rgb(var(--text))]`}
       >
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (() => {
+              try {
+                const stored = window.localStorage.getItem('gfa-theme');
+                const mql = window.matchMedia('(prefers-color-scheme: dark)');
+                const system = mql.matches ? 'dark' : 'light';
+                const theme = stored === 'light' || stored === 'dark' ? stored : system;
+                if (theme === 'dark') document.documentElement.classList.add('dark');
+                else document.documentElement.classList.remove('dark');
+              } catch (e) {
+                /* noop */
+              }
+            })();
+          `}
+        </Script>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-slate-900"
         >
           Skip to content
         </a>
-        <div className="relative min-h-screen bg-[color:var(--bg)]">
+        <div className="relative min-h-screen bg-[rgb(var(--bg))]">
           <div className="absolute inset-0 pointer-events-none" aria-hidden>
             <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(99,196,255,0.12),transparent_35%)]" />
           </div>

@@ -16,29 +16,29 @@ const fadeIn = {
   initial: { opacity: 0, y: 12 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.6, ease: "easeOut" },
+  transition: { duration: 0.6, ease: "easeOut" as const },
 };
 
 export function Section({ kicker, title, subtitle, children, className = "", id }: SectionProps) {
   return (
     <motion.section
       id={id}
-      className={`mb-16 flex flex-col gap-6 rounded-3xl border border-white/10 bg-[color:var(--surface)]/80 p-7 sm:p-9 lg:p-10 ${className}`}
+      className={`mb-16 flex flex-col gap-6 rounded-3xl border border-[rgb(var(--border))] bg-[rgba(var(--surface),0.96)] p-7 sm:p-9 lg:p-10 ${className}`}
       {...fadeIn}
     >
       <div className="space-y-3">
         {kicker ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
             {kicker}
           </p>
         ) : null}
         <h2
-          className="text-2xl leading-tight text-white sm:text-3xl lg:text-4xl"
+          className="text-2xl leading-tight text-primary sm:text-3xl lg:text-4xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}
         </h2>
-        {subtitle ? <p className="max-w-3xl text-base text-slate-300 sm:text-lg">{subtitle}</p> : null}
+        {subtitle ? <p className="max-w-3xl text-base text-secondary sm:text-lg">{subtitle}</p> : null}
       </div>
       {children}
     </motion.section>
