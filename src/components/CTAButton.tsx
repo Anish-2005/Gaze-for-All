@@ -6,9 +6,10 @@ export type CTAButtonProps = {
   children: ReactNode;
   variant?: "primary" | "ghost";
   ariaLabel?: string;
+  onClick?: (e: React.MouseEvent) => void;
 };
 
-export function CTAButton({ href, children, variant = "primary", ariaLabel }: CTAButtonProps) {
+export function CTAButton({ href, children, variant = "primary", ariaLabel, onClick }: CTAButtonProps) {
   const base =
     "inline-flex w-full min-h-[48px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[rgb(var(--accent))] focus-visible:ring-offset-[rgb(var(--surface))] sm:w-auto";
   const styles =
@@ -17,7 +18,7 @@ export function CTAButton({ href, children, variant = "primary", ariaLabel }: CT
       : "border border-[rgb(var(--border))] text-primary hover:border-[rgb(var(--accent))] hover:text-primary";
 
   return (
-    <Link className={`${base} ${styles}`} href={href} aria-label={ariaLabel}>
+    <Link className={`${base} ${styles}`} href={href} aria-label={ariaLabel} onClick={onClick}>
       {children}
       <span aria-hidden className="text-base">↗</span>
     </Link>
