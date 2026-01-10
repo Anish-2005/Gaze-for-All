@@ -34,16 +34,16 @@ export function Navbar() {
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 text-slate-100 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgb(var(--border))] text-primary lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={open}
           onClick={() => setOpen((prev) => !prev)}
         >
           <span className="sr-only">Menu</span>
           <div className="space-y-1.5">
-            <span className="block h-0.5 w-6 bg-white" />
-            <span className="block h-0.5 w-6 bg-white" />
-            <span className="block h-0.5 w-6 bg-white" />
+            <span className="block h-0.5 w-6 bg-[rgb(var(--text))]" />
+            <span className="block h-0.5 w-6 bg-[rgb(var(--text))]" />
+            <span className="block h-0.5 w-6 bg-[rgb(var(--text))]" />
           </div>
         </button>
 

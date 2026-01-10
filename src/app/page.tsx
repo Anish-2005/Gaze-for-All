@@ -27,19 +27,19 @@ const stats = [
 export default function Home() {
   return (
     <div className="space-y-10 sm:space-y-12">
-      <section className="glass card-hover mt-6 rounded-3xl border border-white/10 p-6 sm:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+      <section className="glass card-hover mt-6 rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-6 sm:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
           Software-only gaze communication
         </p>
         <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl space-y-4">
             <h1
-              className="text-3xl leading-tight text-white sm:text-4xl lg:text-5xl"
+              className="text-3xl leading-tight text-primary sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Restore a patient’s voice with only a webcam.
             </h1>
-            <p className="text-lg text-slate-300">
+            <p className="text-lg text-secondary">
               Gaze for All gives people with ALS, paralysis, or ICU delirium a way to speak again—no specialized cameras, no long installs, just trusted eye-tracking software that respects clinical workflows.
             </p>
             <div className="flex flex-wrap items-center gap-3">
@@ -48,19 +48,19 @@ export default function Home() {
                 How we’re different
               </CTAButton>
             </div>
-            <div className="grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-4 text-sm text-primary sm:grid-cols-4">
               {stats.map((item) => (
                 <div key={item.label} className="space-y-1">
-                  <p className="text-xl font-semibold text-white">{item.value}</p>
-                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">{item.label}</p>
+                  <p className="text-xl font-semibold text-primary">{item.value}</p>
+                  <p className="text-xs uppercase tracking-[0.14em] text-secondary">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
           <div className="mt-4 w-full lg:mt-0 lg:max-w-sm">
-            <div className="glass rounded-3xl border border-white/15 p-5 text-sm text-slate-200 shadow-ring">
-              <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted)]">For judges, hospitals, insurers</p>
-              <h3 className="mt-3 text-xl text-white" style={{ fontFamily: "var(--font-heading)" }}>
+            <div className="glass rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-sm text-primary shadow-ring">
+              <p className="text-xs uppercase tracking-[0.18em] text-secondary">For judges, hospitals, insurers</p>
+              <h3 className="mt-3 text-xl text-primary" style={{ fontFamily: "var(--font-heading)" }}>
                 Proof of impact
               </h3>
               <ul className="mt-3 space-y-2">

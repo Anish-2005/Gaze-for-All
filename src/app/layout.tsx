@@ -72,7 +72,7 @@ export default function RootLayout({
         </a>
         <div className="relative min-h-screen bg-[rgb(var(--bg))]">
           <div className="absolute inset-0 pointer-events-none" aria-hidden>
-            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(99,196,255,0.12),transparent_35%)]" />
+            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(var(--accent),0.12),transparent_35%)]" />
           </div>
           <div className="relative mx-auto flex min-h-screen w-full max-w-screen-2xl flex-col px-6 pb-14 sm:px-10 lg:px-14">
             <Navbar />
