@@ -2,7 +2,7 @@
 import { CTAButton } from "@/components/CTAButton";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
-import { ArrowDown, BadgeDollarSign, Building2, Crosshair, Laptop, ShieldCheck, Smile, Timer } from "lucide-react";
+import { ArrowDown, BadgeDollarSign, Building2, Crosshair, Laptop, ShieldCheck, Smile, Timer, Quote } from "lucide-react";
 import { useEffect } from "react";
 import { trackScrollDepth, trackEvent } from "@/lib/analytics";
 
@@ -29,6 +29,24 @@ const stats = [
   { label: "Hardware cost", value: "$0", icon: BadgeDollarSign },
   { label: "Intent accuracy", value: "92%", icon: Crosshair },
   { label: "Pilots", value: "18 sites", icon: Building2 },
+];
+
+const benefits = [
+  {
+    title: "No $10k hardware",
+    description: "Webcam-based setup with zero device costs.",
+    icon: Laptop,
+  },
+  {
+    title: "Clinician-ready",
+    description: "HIPAA-aligned, audit-friendly, and exportable logs.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Patient-first",
+    description: "Large targets, calm visuals, voice feedback tuned with therapists.",
+    icon: Smile,
+  },
 ];
 
 const logos = ["Northwell Health", "Partners Health", "ALS Clinic", "ICU Pilot Sites"];
@@ -86,10 +104,11 @@ export default function Home() {
               Restore speech using any webcam
             </h1>
             <p className="text-secondary text-base">
-              AI-powered eye tracking for people who cannot speak. One webcam, first message in minutes.
+              AI-powered eye tracking for people who cannot speak — no hardware, no delay.
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <CTAButton href="#demo" ariaLabel="Watch the Gaze for All demo" onClick={handleCtaClick("Watch demo")}>Watch demo</CTAButton>
+              <CTAButton href="/how-it-works" variant="ghost" ariaLabel="Learn how Gaze for All works" onClick={handleCtaClick("Learn how it works")}>Learn how it works</CTAButton>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:gap-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.05)] p-3 sm:p-4 text-sm text-primary sm:grid-cols-4" id="proof">
               {stats.map((item) => (
@@ -153,6 +172,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <Section
+        kicker="Benefits"
+        title="What you get in seconds"
+        subtitle="Short, scannable highlights for fast decisions."
+      >
+        <div className="grid gap-3 sm:gap-4 sm:grid-cols-3">
+          {benefits.map((item) => (
+            <FeatureCard
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              icon={<item.icon aria-hidden className="h-5 w-5 text-secondary" />}
+            />
+          ))}
+        </div>
+      </Section>
 
       <Section
         kicker="Why now"
@@ -214,31 +250,34 @@ export default function Home() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <Smile className="h-5 w-5 text-accent" aria-hidden />
-              <h3 className="text-lg font-semibold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Patients & Caregivers</h3>
+              <h3 className="text-lg font-semibold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>For Patients & Families</h3>
             </div>
             <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4 sm:p-5">
-              <p className="text-secondary mb-2">Guided onboarding, large targets, calm visuals, and clear voice output at home or bedside.</p>
-              <CTAButton href="/how-to-use" ariaLabel="See how to use Gaze for All" variant="ghost" onClick={handleCtaClick("See how to use it")}>See how to use it</CTAButton>
+              <p className="text-primary mb-1">Problem: Waiting for hardware leaves loved ones silent.</p>
+              <p className="text-secondary mb-3">Solution: Webcam gaze with guided onboarding delivers a first message in minutes.</p>
+              <CTAButton href="/how-to-use" ariaLabel="Get started with Gaze for patients" variant="ghost" onClick={handleCtaClick("Get started - patients")}>Get started</CTAButton>
             </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <Building2 className="h-5 w-5 text-accent" aria-hidden />
-              <h3 className="text-lg font-semibold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Clinicians & Hospitals</h3>
+              <h3 className="text-lg font-semibold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>For Hospitals & Care Teams</h3>
             </div>
             <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4 sm:p-5">
-              <p className="text-secondary mb-2">Fast install on shared carts, offline-capable, audit logs, and HIPAA-aligned handling out of the box.</p>
-              <CTAButton href="/for-hospitals" ariaLabel="View hospital readiness" variant="ghost" onClick={handleCtaClick("View hospital readiness")}>View hospital readiness</CTAButton>
+              <p className="text-primary mb-1">Problem: Shared carts and IT approvals slow bedside communication.</p>
+              <p className="text-secondary mb-3">Solution: Run on existing PCs, offline-capable, with audit logs and HIPAA-aligned handling.</p>
+              <CTAButton href="/for-hospitals" ariaLabel="Book a hospital demo" variant="ghost" onClick={handleCtaClick("Book demo - hospitals")}>Book a demo</CTAButton>
             </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <BadgeDollarSign className="h-5 w-5 text-accent" aria-hidden />
-              <h3 className="text-lg font-semibold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Insurance & Partners</h3>
+              <h3 className="text-lg font-semibold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>For Insurers & Partners</h3>
             </div>
             <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4 sm:p-5">
-              <p className="text-secondary mb-2">Outcomes tracking, reimbursement-friendly exports, and SDK options for accessibility platforms.</p>
-              <CTAButton href="/business-model" ariaLabel="See partnership options" variant="ghost" onClick={handleCtaClick("See partnership options")}>See partnership options</CTAButton>
+              <p className="text-primary mb-1">Problem: Proving outcomes and scaling accessibility is costly.</p>
+              <p className="text-secondary mb-3">Solution: Outcomes exports, reimbursement-ready reporting, and an SDK for platform integration.</p>
+              <CTAButton href="/business-model" ariaLabel="Talk to us about partnerships" variant="ghost" onClick={handleCtaClick("Talk to us - partners")}>Talk to us</CTAButton>
             </div>
           </div>
         </div>
@@ -315,9 +354,10 @@ export default function Home() {
           </div>
           <div className="glass rounded-2xl border border-[rgb(var(--border))] p-5 text-secondary flex flex-col gap-3 justify-between">
             <div>
-              <p className="text-primary text-xl" style={{ fontFamily: 'var(--font-heading)' }}>
-                Security & compliance
-              </p>
+              <div className="flex items-center gap-2 text-primary text-xl" style={{ fontFamily: 'var(--font-heading)' }}>
+                <ShieldCheck className="h-5 w-5 text-accent" aria-hidden />
+                <p>Security & compliance</p>
+              </div>
               <ul className="mt-3 space-y-2 text-sm">
                 <li className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-accent" aria-hidden /> HIPAA-aligned: local-first, role-based access</li>
                 <li className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-accent" aria-hidden /> Exportable logs for audits and reimbursement</li>

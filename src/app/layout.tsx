@@ -45,9 +45,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${heading.variable} ${sans.variable} antialiased bg-[rgb(var(--bg))] text-[rgb(var(--text))]`}
+        className={`${heading.variable} ${sans.variable} antialiased bg-[rgb(var(--bg))] text-[rgb(var(--text))] overflow-x-hidden`}
       >
         <Script id="theme-init" strategy="beforeInteractive">
           {`
@@ -57,8 +57,10 @@ export default function RootLayout({
                 const mql = window.matchMedia('(prefers-color-scheme: dark)');
                 const system = mql.matches ? 'dark' : 'light';
                 const theme = stored === 'light' || stored === 'dark' ? stored : system;
-                if (theme === 'dark') document.documentElement.classList.add('dark');
-                else document.documentElement.classList.remove('dark');
+                const root = document.documentElement;
+                root.dataset.theme = theme;
+                if (theme === 'dark') root.classList.add('dark');
+                else root.classList.remove('dark');
               } catch (e) {
                 /* noop */
               }
