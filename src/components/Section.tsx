@@ -23,7 +23,7 @@ export function Section({ kicker, title, subtitle, children, className = "", id 
   return (
     <motion.section
       id={id}
-      className={`mb-14 flex flex-col gap-5 rounded-3xl border border-white/10 bg-[color:var(--surface)]/80 p-6 sm:p-8 ${className}`}
+      className={`mb-16 flex flex-col gap-6 rounded-3xl border border-white/10 bg-[color:var(--surface)]/80 p-7 sm:p-9 lg:p-10 ${className}`}
       {...fadeIn}
     >
       <div className="space-y-3">

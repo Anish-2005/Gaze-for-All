@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-30 backdrop-blur-md">
-      <nav className="glass mt-4 flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6" aria-label="Primary">
+      <nav className="glass mt-6 flex items-center justify-between rounded-2xl px-5 py-4 sm:px-7" aria-label="Primary">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-xl bg-[color:var(--surface)] ring-1 ring-white/10 shadow-ring flex items-center justify-center text-lg font-bold text-white">G</div>
           <div>

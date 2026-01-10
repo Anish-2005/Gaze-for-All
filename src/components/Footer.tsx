@@ -9,7 +9,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-white/10 pt-8 text-sm text-slate-300">
+    <footer className="mt-20 border-t border-white/10 pt-10 text-sm text-slate-300">
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="space-y-2">
           <p className="text-base font-semibold text-white">Gaze for All</p>
