@@ -1,8 +1,9 @@
+import type { Metadata } from "next";
 import { CTAButton } from "@/components/CTAButton";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "How to use | Gaze for All",
   description: "A gentle 4-step flow to start using Gaze for All with any webcam—patient-friendly and quick for caregivers.",
 };

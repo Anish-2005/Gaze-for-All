@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Roadmap | Gaze for All",
   description: "Three-year roadmap across clinical validation, reimbursement, and global access for gaze communication.",
 };
