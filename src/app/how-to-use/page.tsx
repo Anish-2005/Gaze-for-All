@@ -5,7 +5,7 @@ import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "How to use | Gaze for All",
-  description: "A gentle 4-step flow to start using Gaze for All with any webcamâ€”patient-friendly and quick for caregivers.",
+  description: "A gentle 4-step flow to start using Gaze for All with any webcamâ€"patient-friendly and quick for caregivers.",
 };
 
 const steps = [
@@ -37,7 +37,7 @@ export default function HowToUsePage() {
       <Section
         kicker="How to use"
         title="Four steps to a reassuring first message"
-        subtitle="Designed for patients and caregiversâ€”no technical words needed."
+        subtitle="Designed for patients and caregiversâ€"no technical words needed."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {steps.map((step) => (
@@ -52,3 +52,4 @@ export default function HowToUsePage() {
     </div>
   );
 }
+

@@ -13,7 +13,7 @@ export default function ProblemPage() {
     {
       title: "Hardware is unaffordable",
       description:
-        "Dedicated eye-tracking devices cost $10kâ€“$20k and require procurement cycles many patients cannot access in time.",
+        "Dedicated eye-tracking devices cost $10kâ€"$20k and require procurement cycles many patients cannot access in time.",
       tag: "$10k+",
     },
     {
@@ -51,7 +51,7 @@ export default function ProblemPage() {
             <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
               <div className="space-y-2 rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.04)] p-3">
                 <p className="text-primary font-semibold">Traditional</p>
-                <p>$10kâ€“$20k hardware</p>
+                <p>$10kâ€"$20k hardware</p>
                 <p>Procurement weeks</p>
                 <p>Specialized cameras</p>
               </div>
@@ -103,7 +103,7 @@ export default function ProblemPage() {
         <div className="grid gap-4 sm:grid-cols-3">
           <FeatureCard
             title="Cost"
-            description="$10kâ€“$20k devices are out of reach for most patients and many hospitals."
+            description="$10kâ€"$20k devices are out of reach for most patients and many hospitals."
             tag="Barrier"
           />
           <FeatureCard
@@ -121,3 +121,4 @@ export default function ProblemPage() {
     </div>
   );
 }
+

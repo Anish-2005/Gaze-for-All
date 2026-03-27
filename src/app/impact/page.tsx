@@ -22,7 +22,7 @@ export default function ImpactPage() {
   ];
 
   const economic = [
-    { title: "$0 hardware", description: "Avoid $10kâ€“$20k device purchases per patient.", tag: "Savings" },
+    { title: "$0 hardware", description: "Avoid $10kâ€"$20k device purchases per patient.", tag: "Savings" },
     { title: "Shorter stays", description: "Communication reduces avoidable ICU and rehab days tied to silence.", tag: "Efficiency" },
     { title: "Reimbursable data", description: "Exports support coverage without extra equipment line items.", tag: "Value" },
   ];
@@ -105,3 +105,4 @@ export default function ImpactPage() {
     </div>
   );
 }
+

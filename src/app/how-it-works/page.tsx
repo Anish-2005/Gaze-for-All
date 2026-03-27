@@ -6,7 +6,7 @@ import { Section } from "@/components/Section";
 export const metadata: Metadata = {
   title: "How it works | Gaze for All",
   description:
-    "Eye detection, gaze mapping, AI intent prediction, and voice outputâ€”all on a webcam with lightweight ONNX models and local inference.",
+    "Eye detection, gaze mapping, AI intent prediction, and voice outputâ€"all on a webcam with lightweight ONNX models and local inference.",
 };
 
 const steps = [
@@ -27,7 +27,7 @@ const steps = [
   },
   {
     title: "Voice output",
-    description: "Predicted intent turns into spoken audio or textâ€”audible confirmation reduces anxiety for patients and caregivers.",
+    description: "Predicted intent turns into spoken audio or textâ€"audible confirmation reduces anxiety for patients and caregivers.",
     tag: "Step 4",
   },
 ];
@@ -104,3 +104,4 @@ export default function HowItWorksPage() {
     </div>
   );
 }
+
