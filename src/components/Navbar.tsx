@@ -144,6 +144,7 @@ export function Navbar() {
             ) : null}
           </div>
 
+          <ThemeToggle iconOnly />
           <CTAButton href="/how-it-works#demo">Watch Demo</CTAButton>
         </div>
       </nav>

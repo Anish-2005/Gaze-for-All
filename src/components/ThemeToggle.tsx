@@ -1,32 +1,56 @@
-﻿"use client";
+"use client";
 
-import { useEffect, useState } from "react";
+import { Moon, Palette, Sun } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "gfa-theme";
 
-type ThemeMode = "light" | "dark";
+const THEME_ORDER = ["light", "dark", "ocean", "graphite"] as const;
+type ThemeMode = (typeof THEME_ORDER)[number];
+
+type ThemeConfig = {
+  id: ThemeMode;
+  label: string;
+  previewClass: string;
+};
 
 type Props = {
   compact?: boolean;
+  iconOnly?: boolean;
 };
+
+const THEMES: ThemeConfig[] = [
+  { id: "light", label: "Light", previewClass: "bg-[linear-gradient(120deg,#f8fbff,#e4edf9)]" },
+  { id: "dark", label: "Dark", previewClass: "bg-[linear-gradient(120deg,#102338,#1f3c63)]" },
+  { id: "ocean", label: "Ocean", previewClass: "bg-[linear-gradient(120deg,#dff6fb,#46b6cc)]" },
+  { id: "graphite", label: "Graphite", previewClass: "bg-[linear-gradient(120deg,#353f52,#d8a458)]" },
+];
+
+function isTheme(value: string | null): value is ThemeMode {
+  return value !== null && THEME_ORDER.includes(value as ThemeMode);
+}
 
 function getPreferredTheme(): ThemeMode {
   if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
-  if (stored === "light" || stored === "dark") return stored;
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  if (isTheme(stored)) return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 function applyTheme(mode: ThemeMode) {
   const root = document.documentElement;
-  if (mode === "dark") {
-    root.classList.add("dark");
-  } else {
-    root.classList.remove("dark");
-  }
+  root.dataset.theme = mode;
+  if (mode === "dark" || mode === "graphite") root.classList.add("dark");
+  else root.classList.remove("dark");
 }
 
-export function ThemeToggle({ compact = false }: Props) {
+function getNextTheme(current: ThemeMode): ThemeMode {
+  const idx = THEME_ORDER.indexOf(current);
+  const next = (idx + 1) % THEME_ORDER.length;
+  return THEME_ORDER[next];
+}
+
+export function ThemeToggle({ compact = false, iconOnly = false }: Props) {
   const [mode, setMode] = useState<ThemeMode>("light");
 
   useEffect(() => {
@@ -35,8 +59,10 @@ export function ThemeToggle({ compact = false }: Props) {
     applyTheme(initial);
   }, []);
 
+  const activeTheme = useMemo(() => THEMES.find((theme) => theme.id === mode) ?? THEMES[0], [mode]);
+
   const toggle = () => {
-    const next = mode === "light" ? "dark" : "light";
+    const next = getNextTheme(mode);
     setMode(next);
     applyTheme(next);
     window.localStorage.setItem(STORAGE_KEY, next);
@@ -46,12 +72,24 @@ export function ThemeToggle({ compact = false }: Props) {
     <button
       type="button"
       onClick={toggle}
-      className={`inline-flex items-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary transition-colors hover:border-[rgba(var(--accent),0.45)] hover:text-primary ${compact ? "w-full justify-center" : ""}`}
-      aria-label="Toggle theme"
+      className={`inline-flex items-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] text-xs font-semibold uppercase tracking-[0.1em] text-secondary transition-colors hover:border-[rgba(var(--accent),0.45)] hover:text-primary ${iconOnly ? "h-10 w-10 justify-center p-0" : "px-3 py-2"} ${compact ? "w-full justify-center" : ""}`}
+      aria-label={`Change theme. Current: ${activeTheme.label}`}
+      title={`Theme: ${activeTheme.label}`}
     >
-      <span>{mode === "dark" ? "Dark" : "Light"}</span>
-      <span className={`h-2.5 w-2.5 rounded-full ${mode === "dark" ? "bg-[rgb(var(--accent))]" : "bg-[rgb(var(--success))]"}`} aria-hidden />
+      {iconOnly ? (
+        mode === "light" ? (
+          <Sun className="h-4 w-4 text-primary" aria-hidden />
+        ) : mode === "dark" ? (
+          <Moon className="h-4 w-4 text-primary" aria-hidden />
+        ) : (
+          <Palette className="h-4 w-4 text-primary" aria-hidden />
+        )
+      ) : (
+        <>
+          <span>{activeTheme.label}</span>
+          <span className={`h-2.5 w-7 rounded-full border border-[rgb(var(--border))] ${activeTheme.previewClass}`} aria-hidden />
+        </>
+      )}
     </button>
   );
 }
-

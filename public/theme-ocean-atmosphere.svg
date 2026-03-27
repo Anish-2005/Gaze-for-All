@@ -1,0 +1,20 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="og1" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E4FAFF"/>
+      <stop offset="1" stop-color="#D1F2F9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#og1)"/>
+  <g opacity="0.42" stroke="#39AFC8" stroke-width="1.2" fill="none">
+    <path d="M-100 260C90 190 300 190 510 250C710 310 950 330 1710 180"/>
+    <path d="M-100 360C120 290 330 300 560 360C770 420 1030 440 1710 310"/>
+    <path d="M-140 470C70 390 320 410 570 470C820 530 1080 540 1710 430"/>
+    <path d="M-120 600C120 510 380 540 640 610C900 680 1150 690 1710 560"/>
+  </g>
+  <g opacity="0.2">
+    <ellipse cx="260" cy="170" rx="180" ry="80" stroke="#61C5D9" stroke-width="1.1"/>
+    <ellipse cx="1120" cy="210" rx="260" ry="120" stroke="#61C5D9" stroke-width="1.1"/>
+    <ellipse cx="980" cy="730" rx="220" ry="98" stroke="#61C5D9" stroke-width="1.1"/>
+  </g>
+</svg>

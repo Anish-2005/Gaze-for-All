@@ -58,13 +58,14 @@ export default function RootLayout({
           {`
             (() => {
               try {
+                const THEMES = ['light', 'dark', 'ocean', 'graphite'];
                 const stored = window.localStorage.getItem('gfa-theme');
                 const mql = window.matchMedia('(prefers-color-scheme: dark)');
                 const system = mql.matches ? 'dark' : 'light';
-                const theme = stored === 'light' || stored === 'dark' ? stored : system;
+                const theme = THEMES.includes(stored) ? stored : system;
                 const root = document.documentElement;
                 root.dataset.theme = theme;
-                if (theme === 'dark') root.classList.add('dark');
+                if (theme === 'dark' || theme === 'graphite') root.classList.add('dark');
                 else root.classList.remove('dark');
               } catch (e) {
                 /* noop */

@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = [
   { label: "Problem", href: "/problem" },
@@ -21,7 +22,12 @@ export function Footer() {
       <div className="surface-card rounded-3xl p-6 sm:p-8">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="space-y-3 lg:col-span-2">
-            <p className="text-lg font-semibold text-primary">Gaze for All</p>
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] shadow-soft">
+                <Image src="/logo.svg" alt="Gaze for All logo" width={24} height={24} />
+              </div>
+              <p className="text-lg font-semibold text-primary">Gaze for All</p>
+            </div>
             <p className="max-w-xl text-secondary">
               Accessible gaze communication for patients, hospitals, and partners who need secure, rapid deployment without specialized hardware.
             </p>
@@ -80,4 +86,3 @@ export function Footer() {
     </footer>
   );
 }
-
