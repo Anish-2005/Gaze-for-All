@@ -21,47 +21,47 @@ export default function ProblemPage() {
       tag: "Timing",
     },
     {
-      title: "Caregivers are overburdened",
-      description: "Complex setups steal time from nurses and families, increasing anxiety when tools fail mid-session.",
-      tag: "Fatigue",
+      title: "Caregiver strain",
+      description: "Complex setup steals time from nurses and families, increasing stress during critical care windows.",
+      tag: "Workflow",
     },
     {
       title: "Equity gap widens",
-      description: "Low-resource hospitals and home settings rarely receive specialized eye-tracking devices.",
+      description: "Low-resource hospitals and home settings rarely receive specialized communication hardware.",
       tag: "Equity",
     },
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="page-shell">
       <Section
         kicker="Problem"
         title="When speech stops, waiting for hardware is not an option"
-        subtitle="ALS, stroke, paralysis, and ICU patients need a way to speak within hours. Five-figure hardware and procurement timelines block that outcome."
+        subtitle="Patients need communication within hours. Traditional device timelines and costs create avoidable silence."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
-          <div className="surface-subtle rounded-2xl p-5 text-secondary">
-            <p className="text-xl font-semibold text-primary">Cost comparison</p>
-            <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
-              <div className="rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.06)] p-3">
-                <p className="font-semibold text-primary">Traditional</p>
+        <div className="grid gap-3 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          <div className="surface-subtle rounded-[var(--radius-lg)] p-4 text-sm text-secondary">
+            <p className="text-lg font-semibold text-primary">Cost and timeline comparison</p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.08)] p-3">
+                <p className="font-semibold text-primary">Traditional hardware</p>
                 <ul className="mt-2 space-y-1.5">
-                  <li>$10k-$20k hardware</li>
-                  <li>Procurement in weeks</li>
-                  <li>Specialized cameras</li>
+                  <li>$10k-$20k per device setup</li>
+                  <li>Procurement cycles measured in weeks</li>
+                  <li>Specialized cameras and mounts</li>
                 </ul>
               </div>
-              <div className="rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--success),0.1)] p-3">
+              <div className="rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--success),0.12)] p-3">
                 <p className="font-semibold text-primary">Gaze for All</p>
                 <ul className="mt-2 space-y-1.5">
-                  <li>$0 new hardware</li>
-                  <li>Setup in minutes</li>
-                  <li>Runs on current PCs</li>
+                  <li>$0 new hardware required</li>
+                  <li>Deployment in minutes</li>
+                  <li>Runs on current webcams</li>
                 </ul>
               </div>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {barriers.map((item) => (
               <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
             ))}
@@ -70,50 +70,14 @@ export default function ProblemPage() {
       </Section>
 
       <Section
-        kicker="What this means"
-        title="Silence has clinical and human cost"
-        subtitle="Without rapid communication, pain goes unreported, consent is unclear, and care plans slow down."
+        kicker="Clinical impact"
+        title="Silence creates risk, delay, and emotional burden"
+        subtitle="When communication is delayed, pain reporting, consent clarity, and care planning all suffer."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
-          <FeatureCard
-            title="Delayed decisions"
-            description="Clinicians lose direct patient feedback on pain, discomfort, and consent at critical times."
-            tag="ICU"
-          />
-          <FeatureCard
-            title="Emotional strain"
-            description="Patients feel isolated and families cannot quickly validate needs, increasing stress during recovery."
-            tag="Family"
-          />
-          <FeatureCard
-            title="Unequal access"
-            description="Rural and underfunded settings are less likely to receive specialized assistive hardware."
-            tag="Access"
-          />
-        </div>
-      </Section>
-
-      <Section
-        kicker="Why existing solutions fail"
-        title="Hardware dependency keeps people silent"
-        subtitle="High cost, fragile supply chains, and setup friction block communication when time matters most."
-      >
-        <div className="grid gap-4 sm:grid-cols-3">
-          <FeatureCard
-            title="Cost"
-            description="$10k-$20k devices remain out of reach for many patients and hospitals."
-            tag="Barrier"
-          />
-          <FeatureCard
-            title="Procurement delay"
-            description="Special cameras and mounts add approval cycles and logistics overhead."
-            tag="Delay"
-          />
-          <FeatureCard
-            title="Deployment friction"
-            description="Many setups depend on IT support and vendor coordination before first use."
-            tag="Friction"
-          />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureCard title="Delayed decisions" description="Clinicians lose direct patient feedback on pain and discomfort." tag="ICU" />
+          <FeatureCard title="Family distress" description="Families cannot quickly validate needs, raising anxiety during recovery." tag="Family" />
+          <FeatureCard title="Uneven access" description="Under-resourced settings are least likely to receive specialist hardware." tag="Access" />
         </div>
       </Section>
     </div>

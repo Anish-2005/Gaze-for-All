@@ -1,38 +1,49 @@
-﻿"use client";
+"use client";
 
 import { useEffect } from "react";
-import { BadgeDollarSign, Building2, CheckCircle2, Clock3, Crosshair, HeartPulse, Laptop, ShieldCheck, Stethoscope, Users, Workflow } from "lucide-react";
+import {
+  BadgeDollarSign,
+  Building2,
+  CheckCircle2,
+  Clock3,
+  Crosshair,
+  HeartPulse,
+  ShieldCheck,
+  Stethoscope,
+  Users,
+  Workflow,
+} from "lucide-react";
 import { trackEvent, trackScrollDepth } from "@/lib/analytics";
 import { CTAButton } from "@/components/CTAButton";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
 const metrics = [
-  { label: "Setup time", value: "<10 min", icon: Clock3 },
-  { label: "Hardware cost", value: "$0", icon: BadgeDollarSign },
-  { label: "Intent accuracy", value: "92%", icon: Crosshair },
-  { label: "Pilot sites", value: "18", icon: Building2 },
+  { label: "Setup Time", value: "<10 min", icon: Clock3 },
+  { label: "Hardware Cost", value: "$0", icon: BadgeDollarSign },
+  { label: "Intent Accuracy", value: "92%", icon: Crosshair },
+  { label: "Pilot Sites", value: "18", icon: Building2 },
 ];
 
 const pathways = [
   {
-    title: "Patients and families",
-    description: "Start communication at home in minutes using any laptop webcam and guided setup.",
-    cta: "Get started",
+    title: "Patients and Families",
+    description: "Start communication at home in minutes with guided setup and predictable interaction patterns.",
+    cta: "Get Started",
     href: "/how-to-use",
     icon: Users,
   },
   {
-    title: "Hospitals and care teams",
-    description: "Deploy on existing bedside hardware with local-first processing and compliance-friendly logs.",
-    cta: "See hospital fit",
+    title: "Hospitals and Care Teams",
+    description: "Deploy on existing devices with local-first processing and audit-ready controls.",
+    cta: "Hospital Readiness",
     href: "/for-hospitals",
     icon: Stethoscope,
   },
   {
-    title: "Insurers and partners",
-    description: "Use outcome exports and integration options to support reimbursement and scale access.",
-    cta: "Discuss partnerships",
+    title: "Insurers and Partners",
+    description: "Use reporting exports and integration pathways to scale equitable communication access.",
+    cta: "View Business Model",
     href: "/business-model",
     icon: Workflow,
   },
@@ -40,161 +51,134 @@ const pathways = [
 
 const trustItems = [
   {
-    title: "Clinical-ready privacy",
-    description: "Local-first inference and optional cloud sync keep sensitive patient interactions controlled.",
-    tag: "Privacy",
+    title: "Local-first privacy",
+    description: "Inference runs on-device by default, with cloud sync available only where needed.",
+    tag: "Trust",
     icon: ShieldCheck,
   },
   {
-    title: "Built for real workflows",
-    description: "Designed with nurses, therapists, and caregivers for ICU, rehab, and home care settings.",
-    tag: "Operations",
+    title: "Clinical workflow fit",
+    description: "Co-designed with therapists and nurses for bedside and home transitions.",
+    tag: "Clinical",
     icon: HeartPulse,
   },
   {
     title: "No procurement delay",
-    description: "No special cameras or custom hardware, so teams can start with devices they already own.",
+    description: "Works on existing webcams, removing dependency on specialist hardware.",
     tag: "Speed",
-    icon: Laptop,
+    icon: Building2,
   },
 ];
 
 const faqs = [
   {
     question: "Does it work offline?",
-    answer: "Yes. Eye tracking and intent prediction run locally, while cloud sync is optional.",
+    answer: "Yes. Eye tracking and intent prediction run locally with optional cloud sync.",
   },
   {
     question: "Is patient video stored?",
-    answer: "No raw video is stored. Exportable logs can be enabled for audits and reimbursement support.",
+    answer: "No raw video is stored by default. Logs can be exported for audits with consent controls.",
   },
   {
-    question: "Can hospitals roll this out quickly?",
-    answer: "Yes. Most deployments run on existing carts or workstations with minimal setup time.",
+    question: "Can hospitals deploy quickly?",
+    answer: "Most sites can run pilots on existing carts or workstations without hardware procurement.",
   },
 ];
-
-const partnerPills = ["Northwell Health", "Partners Health", "ALS Clinics", "ICU Pilot Sites"];
 
 export default function Home() {
   useEffect(() => {
     trackScrollDepth();
   }, []);
 
-  const handleCtaClick = (label: string) => () => trackEvent("CTA Click", { label });
+  const trackCta = (label: string) => () => trackEvent("CTA Click", { label });
 
   return (
-    <div className="space-y-10 sm:space-y-12">
-      <section className="surface-card mt-3 rounded-3xl p-6 sm:p-8 lg:p-10">
-        <div className="grid gap-8 lg:grid-cols-12">
-          <div className="space-y-6 lg:col-span-7">
-            <span className="token-pill">Software-only gaze communication</span>
-            <div className="space-y-4">
-              <h1 className="max-w-3xl text-3xl leading-tight text-primary sm:text-5xl">
-                Restore speech with any webcam in under ten minutes.
-              </h1>
-              <p className="max-w-2xl text-base text-secondary sm:text-lg">
-                Gaze for All helps ALS, paralysis, and ICU patients communicate without waiting for expensive hardware. It is local-first, fast to deploy, and built for care teams.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <CTAButton href="#demo" ariaLabel="Watch the Gaze for All demo" onClick={handleCtaClick("Watch demo")}>
-                Watch Demo
-              </CTAButton>
-              <CTAButton href="/how-it-works" variant="ghost" ariaLabel="Learn how Gaze for All works" onClick={handleCtaClick("Learn how it works")}>
-                Learn How It Works
-              </CTAButton>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {metrics.map((item) => (
-                <div key={item.label} className="surface-subtle rounded-xl p-3">
-                  <p className="text-xl font-semibold text-primary">{item.value}</p>
-                  <p className="mt-1 flex items-center gap-1 text-xs uppercase tracking-[0.12em] text-secondary">
-                    <item.icon aria-hidden className="h-3.5 w-3.5" />
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+    <div className="page-shell">
+      <section className="surface-card hero-grid rounded-[var(--radius-xl)] p-[var(--space-section)]">
+        <div className="space-y-5">
+          <span className="token-pill">Software-only gaze communication</span>
+          <div className="space-y-3">
+            <h1 className="text-[clamp(1.7rem,1.3rem+2vw,3.25rem)] leading-[1.08] text-primary">
+              Restore speech with any webcam in under ten minutes.
+            </h1>
+            <p className="max-w-2xl text-[clamp(0.95rem,0.9rem+0.35vw,1.12rem)] text-secondary">
+              Gaze for All helps ALS, paralysis, and ICU patients communicate without waiting for expensive hardware. It is local-first, fast to deploy, and designed for clinical reliability.
+            </p>
           </div>
 
-          <div className="space-y-4 lg:col-span-5" id="demo">
-            <div className="glass rounded-2xl p-5">
-              <p className="text-xs uppercase tracking-[0.16em] text-secondary">Demo Preview</p>
-              <div className="mt-3 aspect-video rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.08)]">
-                <div className="flex h-full items-center justify-center text-sm text-secondary">Video demo area</div>
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+            <CTAButton href="#demo" ariaLabel="Watch the Gaze for All demo" onClick={trackCta("Watch demo")}>
+              Watch Demo
+            </CTAButton>
+            <CTAButton href="/how-it-works" variant="ghost" ariaLabel="Learn how Gaze for All works" onClick={trackCta("Learn how it works")}>
+              How It Works
+            </CTAButton>
+          </div>
+
+          <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
+            {metrics.map((item) => (
+              <div key={item.label} className="surface-subtle rounded-[var(--radius-lg)] p-3">
+                <p className="text-xl font-semibold text-primary">{item.value}</p>
+                <p className="mt-1 flex items-center gap-1.5 text-[0.68rem] uppercase tracking-[0.12em] text-secondary">
+                  <item.icon className="h-3.5 w-3.5" aria-hidden />
+                  {item.label}
+                </p>
               </div>
-              <ul className="mt-4 space-y-2 text-sm text-secondary">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 aria-hidden className="h-4 w-4 text-[rgb(var(--success))]" />
-                  Local inference for privacy and low latency
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 aria-hidden className="h-4 w-4 text-[rgb(var(--success))]" />
-                  Guided onboarding for caregivers and nurses
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 aria-hidden className="h-4 w-4 text-[rgb(var(--success))]" />
-                  Works on shared hospital carts and personal laptops
-                </li>
-              </ul>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-3.5" id="demo">
+          <div className="glass rounded-[var(--radius-lg)] p-4 sm:p-5">
+            <p className="text-[0.68rem] uppercase tracking-[0.16em] text-secondary">Demo Preview</p>
+            <div className="mt-3 aspect-video rounded-xl border border-[rgb(var(--border))] bg-[rgba(var(--accent),0.08)]">
+              <div className="flex h-full items-center justify-center text-sm text-secondary">Product video placeholder</div>
             </div>
-            <div className="surface-subtle rounded-2xl p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">Trusted pilots</p>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs font-medium text-secondary sm:grid-cols-4 lg:grid-cols-2">
-                {partnerPills.map((item) => (
-                  <div key={item} className="rounded-lg border border-[rgb(var(--border))] bg-[rgb(var(--surface))] px-3 py-2 text-center">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ul className="mt-4 space-y-2 text-sm text-secondary">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[rgb(var(--success))]" aria-hidden />
+                Local inference for low latency and privacy.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[rgb(var(--success))]" aria-hidden />
+                Guided onboarding for caregivers and nurses.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[rgb(var(--success))]" aria-hidden />
+                Works on existing hospital carts and personal laptops.
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
       <Section
-        kicker="Flow"
-        title="A clear communication flow for teams and families"
-        subtitle="The product flow is designed to reduce onboarding friction while keeping decision moments visible to everyone around the patient."
+        kicker="Workflow"
+        title="A clear communication flow for care teams"
+        subtitle="Each phase is designed to reduce setup burden and improve confidence in patient intent."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
-          <FeatureCard
-            title="1. Calibrate quickly"
-            description="A lightweight setup flow maps gaze to targets with guided prompts and immediate feedback."
-            tag="Setup"
-            icon={<Clock3 aria-hidden className="h-5 w-5" />}
-          />
-          <FeatureCard
-            title="2. Select with confidence"
-            description="Large targets and dwell selection lower fatigue, while intent prediction speeds communication."
-            tag="Interaction"
-            icon={<Crosshair aria-hidden className="h-5 w-5" />}
-          />
-          <FeatureCard
-            title="3. Confirm and document"
-            description="Voice output confirms meaning in real time, with optional logs for clinical and reimbursement review."
-            tag="Outcome"
-            icon={<ShieldCheck aria-hidden className="h-5 w-5" />}
-          />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureCard title="Calibrate quickly" description="A lightweight setup maps gaze to targets with immediate feedback." tag="Step 1" icon={<Clock3 className="h-5 w-5" aria-hidden />} />
+          <FeatureCard title="Select with confidence" description="Large targets and dwell logic reduce fatigue while preserving accuracy." tag="Step 2" icon={<Crosshair className="h-5 w-5" aria-hidden />} />
+          <FeatureCard title="Confirm and document" description="Voice output confirms intent in real time with optional audit exports." tag="Step 3" icon={<ShieldCheck className="h-5 w-5" aria-hidden />} />
         </div>
       </Section>
 
       <Section
-        kicker="Choose your path"
-        title="Built for every stakeholder in care communication"
-        subtitle="Pick the path that matches your setting and move directly to the right workflow."
+        kicker="Stakeholders"
+        title="Built for every communication stakeholder"
+        subtitle="Each audience gets a focused path, with one primary action and minimal friction."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {pathways.map((item) => (
-            <div key={item.title} className="surface-card flex h-full flex-col rounded-2xl p-5">
+            <div key={item.title} className="surface-subtle flex h-full flex-col rounded-[var(--radius-lg)] p-4 sm:p-5">
               <div className="flex items-center gap-2 text-primary">
-                <item.icon aria-hidden className="h-5 w-5 text-[rgb(var(--accent))]" />
-                <h3 className="text-lg">{item.title}</h3>
+                <item.icon className="h-5 w-5 text-[rgb(var(--accent))]" aria-hidden />
+                <h3 className="text-lg leading-tight">{item.title}</h3>
               </div>
               <p className="mt-3 flex-1 text-sm text-secondary">{item.description}</p>
               <div className="mt-4">
-                <CTAButton href={item.href} variant="ghost" onClick={handleCtaClick(item.cta)}>
+                <CTAButton href={item.href} variant="ghost" onClick={trackCta(item.cta)}>
                   {item.cta}
                 </CTAButton>
               </div>
@@ -204,19 +188,13 @@ export default function Home() {
       </Section>
 
       <Section
-        kicker="Why teams choose us"
+        kicker="Proof"
         title="Professional-grade reliability without hardware dependence"
-        subtitle="The model is simple: keep access free for individuals, and make institutional deployments robust and accountable."
+        subtitle="Clinically aligned controls and predictable deployment model keep teams confident."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {trustItems.map((item) => (
-            <FeatureCard
-              key={item.title}
-              title={item.title}
-              description={item.description}
-              tag={item.tag}
-              icon={<item.icon aria-hidden className="h-5 w-5 text-[rgb(var(--accent))]" />}
-            />
+            <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} icon={<item.icon className="h-5 w-5" aria-hidden />} />
           ))}
         </div>
       </Section>
@@ -224,23 +202,23 @@ export default function Home() {
       <Section
         kicker="Comparison"
         title="From hardware bottleneck to software speed"
-        subtitle="A direct side-by-side view of why teams can deploy faster with webcam-first communication."
+        subtitle="A side-by-side view of deployment realities."
       >
-        <div className="grid gap-4 text-sm text-secondary lg:grid-cols-2">
-          <div className="surface-subtle rounded-2xl p-5">
-            <p className="text-lg font-semibold text-primary">Traditional hardware model</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="surface-subtle rounded-[var(--radius-lg)] p-4 text-sm text-secondary">
+            <p className="text-lg font-semibold text-primary">Traditional model</p>
             <ul className="mt-3 space-y-2">
-              <li>- Device cost often reaches $10k to $20k per setup</li>
-              <li>- Procurement cycles can delay communication by weeks</li>
-              <li>- Specialized cameras and mounts increase operational friction</li>
+              <li>- Device cost often reaches $10k-$20k per setup.</li>
+              <li>- Procurement cycles delay communication by weeks.</li>
+              <li>- Specialized mounts increase operational complexity.</li>
             </ul>
           </div>
-          <div className="surface-subtle rounded-2xl p-5">
+          <div className="surface-subtle rounded-[var(--radius-lg)] p-4 text-sm text-secondary">
             <p className="text-lg font-semibold text-primary">Gaze for All model</p>
             <ul className="mt-3 space-y-2">
-              <li>- Existing webcams support immediate deployment</li>
-              <li>- First communication can happen within minutes</li>
-              <li>- Same software path works across ICU, rehab, and home care</li>
+              <li>- Existing webcams support immediate deployment.</li>
+              <li>- First communication can happen within minutes.</li>
+              <li>- Same software path works across ICU, rehab, and home care.</li>
             </ul>
           </div>
         </div>
@@ -248,33 +226,33 @@ export default function Home() {
 
       <Section
         kicker="FAQ"
-        title="Common questions from clinical and family teams"
-        subtitle="Concise answers to the deployment and privacy questions we hear most often."
+        title="Common questions from clinical teams"
+        subtitle="Concise answers for deployment, privacy, and reliability."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {faqs.map((item) => (
-            <div key={item.question} className="surface-subtle rounded-2xl p-5">
+            <article key={item.question} className="surface-subtle rounded-[var(--radius-lg)] p-4">
               <p className="text-base font-semibold text-primary">{item.question}</p>
               <p className="mt-2 text-sm text-secondary">{item.answer}</p>
-            </div>
+            </article>
           ))}
         </div>
       </Section>
 
-      <section className="accent-gradient rounded-3xl p-7 text-white sm:p-9">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+      <section className="accent-gradient rounded-[var(--radius-xl)] p-5 text-white sm:p-7 lg:p-8">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/80">Next step</p>
-            <h2 className="text-2xl text-white sm:text-3xl">Start a pilot or see the live workflow.</h2>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/80">Next step</p>
+            <h2 className="text-[clamp(1.4rem,1.2rem+1.1vw,2.2rem)] text-white">Start a pilot or review implementation details.</h2>
             <p className="max-w-2xl text-sm text-white/90 sm:text-base">
-              Choose the fastest route for your team: watch the product flow, or review implementation details with your stakeholders.
+              Choose the route that matches your decision process: experience the workflow or evaluate deployment readiness.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <CTAButton href="#demo" ariaLabel="See the product demo" onClick={handleCtaClick("See demo")}>
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+            <CTAButton href="#demo" ariaLabel="See demo" onClick={trackCta("See demo from footer CTA")}>
               See Demo
             </CTAButton>
-            <CTAButton href="/for-hospitals" variant="ghost" ariaLabel="Review hospital readiness" onClick={handleCtaClick("Hospital readiness")}>
+            <CTAButton href="/for-hospitals" variant="ghost" ariaLabel="Review hospital readiness" onClick={trackCta("Hospital readiness CTA")}>
               Hospital Readiness
             </CTAButton>
           </div>
@@ -283,4 +261,3 @@ export default function Home() {
     </div>
   );
 }
-

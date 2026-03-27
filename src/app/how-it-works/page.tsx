@@ -12,93 +12,57 @@ export const metadata: Metadata = {
 const steps = [
   {
     title: "Eye detection",
-    description: "The webcam tracks eyes and face landmarks while adjusting for lighting and head movement.",
+    description: "Webcam tracking follows eye and face landmarks while adapting to lighting and small movement changes.",
     tag: "Step 1",
   },
   {
     title: "Gaze mapping",
-    description: "A quick calibration grid maps gaze to screen targets without special hardware.",
+    description: "A fast calibration grid maps gaze to screen targets without specialized hardware.",
     tag: "Step 2",
   },
   {
-    title: "AI prediction",
-    description: "Lightweight models run locally to predict intent with low latency and adapt to each user.",
+    title: "Intent prediction",
+    description: "On-device models infer likely intent with low latency and patient-specific adaptation.",
     tag: "Step 3",
   },
   {
-    title: "Voice output",
-    description: "Predicted intent turns into spoken audio or text so teams can confirm meaning immediately.",
+    title: "Voice confirmation",
+    description: "Selections are spoken and displayed so care teams can confirm intent immediately.",
     tag: "Step 4",
   },
 ];
 
 export default function HowItWorksPage() {
   return (
-    <div className="space-y-8">
+    <div className="page-shell">
       <Section
         kicker="How it works"
-        title="From gaze to voice in four steps"
-        subtitle="Computation stays local for speed and privacy. Cloud is optional for preferences and care notes."
+        title="From gaze to voice in four reliable steps"
+        subtitle="Computation stays local by default for speed and privacy. Cloud sync remains optional."
         id="demo"
       >
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           {steps.map((step) => (
             <FeatureCard key={step.title} title={step.title} description={step.description} tag={step.tag} />
           ))}
         </div>
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="flex flex-col gap-2.5 sm:flex-row">
           <CTAButton href="/product">View Features</CTAButton>
           <CTAButton href="/how-to-use" variant="ghost">
-            Setup In 4 Steps
+            See Setup Guide
           </CTAButton>
         </div>
       </Section>
 
       <Section
-        kicker="Technology"
-        title="Lightweight by design"
-        subtitle="Small ONNX models run on CPUs to keep the experience reliable on standard hospital and home devices."
+        kicker="Platform characteristics"
+        title="Designed for clinical reliability on standard hardware"
+        subtitle="Small model footprint and practical interaction defaults help teams deploy consistently."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
-          <FeatureCard
-            title="Local inference"
-            description="Works offline for reliability and privacy, with optional sync when connectivity is available."
-            tag="Private"
-          />
-          <FeatureCard
-            title="Adaptive calibration"
-            description="Guided prompts help patients or nurses calibrate quickly, even with limited head mobility."
-            tag="Easy"
-          />
-          <FeatureCard
-            title="Low friction"
-            description="No dongles or firmware. The flow keeps interactions clear for patients and caregivers."
-            tag="Practical"
-          />
-        </div>
-      </Section>
-
-      <Section
-        kicker="Privacy and safety"
-        title="Protect patients while they speak"
-        subtitle="Local inference, no raw video storage, and clear consent controls keep data handling dependable."
-      >
-        <div className="grid gap-4 sm:grid-cols-3">
-          <FeatureCard
-            title="Local by default"
-            description="Eye tracking and intent prediction run on-device, with network use optional."
-            tag="Private"
-          />
-          <FeatureCard
-            title="No raw video stored"
-            description="The platform does not store or stream raw video by default."
-            tag="Safe"
-          />
-          <FeatureCard
-            title="Consent-first controls"
-            description="Role-based access and export controls keep clinicians, patients, and families aligned."
-            tag="Clear"
-          />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureCard title="Local inference" description="Works offline for reliability and data minimization." tag="Private" />
+          <FeatureCard title="Adaptive calibration" description="Guided prompts support varied patient mobility and posture." tag="Accessible" />
+          <FeatureCard title="Low operational friction" description="No dongles or firmware dependencies for routine usage." tag="Practical" />
         </div>
       </Section>
     </div>

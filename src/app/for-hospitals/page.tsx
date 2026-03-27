@@ -1,45 +1,45 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { CTAButton } from "@/components/CTAButton";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "For hospitals | Gaze for All",
-  description: "Purpose-built overview for hospital leaders, clinicians, and IT to see how Gaze for All fits bedside workflows.",
+  description: "Purpose-built overview for hospital leaders, clinicians, and IT teams evaluating bedside communication workflows.",
 };
 
 const stakeholders = [
   {
-    title: "Clinical leads",
-    description: "Minutes to first message, voice confirmations, and offline mode for ICU and rehab.",
+    title: "Clinical leadership",
+    description: "Faster patient communication, clearer intent, and reliable usage in ICU and rehab contexts.",
     tag: "Care",
   },
   {
-    title: "Nursing & therapy",
-    description: "Guided setup, large targets, and low training load for bedside teams.",
+    title: "Nursing and therapy",
+    description: "Guided setup and low training burden for staff rotating across shifts.",
     tag: "Workflow",
   },
   {
-    title: "IT & security",
-    description: "Local-first processing, no special hardware, audit exports, and role-based access.",
-    tag: "Trust",
+    title: "IT and security",
+    description: "Local-first architecture, role-based controls, and exportable audit logs.",
+    tag: "Governance",
   },
 ];
 
 const readiness = [
   {
-    title: "Deployment",
-    description: "Runs on existing carts and PCs; no procurement cycles or new mounts.",
+    title: "Deployment model",
+    description: "Runs on existing carts and PCs with no specialist hardware procurement.",
     tag: "Fast",
   },
   {
-    title: "Compliance",
-    description: "HIPAA-aligned handling, exportable logs, and consent workflows.",
+    title: "Compliance posture",
+    description: "HIPAA-aligned handling with policy-ready data controls and exportability.",
     tag: "Aligned",
   },
   {
-    title: "Support",
-    description: "Training materials for nurses and therapists; SLAs available for 24/7 units.",
+    title: "Operational support",
+    description: "Training resources and service pathways for 24/7 clinical units.",
     tag: "Supported",
   },
 ];
@@ -47,48 +47,48 @@ const readiness = [
 const fit = [
   {
     title: "ICU and step-down",
-    description: "Use webcams on shared devices; keep patients communicating during critical windows.",
+    description: "Support patient communication during high-acuity decision windows.",
     tag: "ICU",
   },
   {
     title: "Rehab and LTAC",
-    description: "Maintain continuity as patients move units without swapping hardware.",
+    description: "Preserve communication continuity as patients transition between units.",
     tag: "Rehab",
   },
   {
     title: "Home transitions",
-    description: "Same software follows the patient home; no new devices to learn.",
-    tag: "Home",
+    description: "Carry the same communication model from discharge to home recovery.",
+    tag: "Continuity",
   },
 ];
 
 export default function ForHospitalsPage() {
   return (
-    <div className="space-y-8">
+    <div className="page-shell">
       <Section
         kicker="For hospitals"
-        title="Is this ready for our hospital?"
-        subtitle="Built to fit bedside workflows without $10k hardware or long approvals."
+        title="Hospital-ready communication without $10k hardware dependence"
+        subtitle="A practical deployment path for clinicians, IT teams, and administrators."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {stakeholders.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
         </div>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <CTAButton href="/how-it-works">See how it works</CTAButton>
+        <div className="flex flex-col gap-2.5 sm:flex-row">
+          <CTAButton href="/how-it-works">Review Technical Flow</CTAButton>
           <CTAButton href="/product" variant="ghost">
-            View tiers
+            Compare Product Tiers
           </CTAButton>
         </div>
       </Section>
 
       <Section
         kicker="Readiness"
-        title="What hospital teams need to know"
-        subtitle="Purpose clarity for clinicians, IT, and administrators."
+        title="What decision-makers need to validate quickly"
+        subtitle="Core checks for implementation, compliance, and team adoption."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {readiness.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
@@ -96,11 +96,11 @@ export default function ForHospitalsPage() {
       </Section>
 
       <Section
-        kicker="Where it fits"
-        title="Across the patient journey"
-        subtitle="Same software from ICU to home minimizes change management."
+        kicker="Care journey fit"
+        title="One software path across ICU, rehab, and home"
+        subtitle="Consistent interaction model reduces change management burden."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {fit.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
@@ -109,4 +109,3 @@ export default function ForHospitalsPage() {
     </div>
   );
 }
-

@@ -1,45 +1,45 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "Business model | Gaze for All",
   description:
-    "Freemium for individuals, hospital site licensing, insurance reimbursement pathways, and SDK licensing for partners.",
+    "Freemium for individuals, hospital site licensing, reimbursement pathways, and SDK licensing for partners.",
 };
 
 export default function BusinessModelPage() {
   const models = [
     {
       title: "Freemium for individuals",
-      description: "Core stays free so patients and families are never priced out.",
+      description: "Core communication remains free so patients and families are never priced out.",
       tag: "B2C",
     },
     {
-      title: "Hospital & ICU licensing",
-      description: "Site licenses with admin controls, SSO, audit exports, and support SLAs.",
+      title: "Hospital and ICU licensing",
+      description: "Site licenses add admin controls, support, and policy features for institutions.",
       tag: "B2B",
     },
     {
-      title: "Insurance & government reimbursement",
-      description: "Outcomes reporting and documentation that align with coverage pathways.",
-      tag: "Reimbursement",
+      title: "Reimbursement pathways",
+      description: "Outcome reporting aligns with payer and public health documentation needs.",
+      tag: "Coverage",
     },
     {
       title: "SDK licensing",
-      description: "Embed gaze intent prediction into partner tools and accessibility platforms.",
-      tag: "SDK",
+      description: "Partners can embed gaze intent prediction into broader accessibility platforms.",
+      tag: "Platform",
     },
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="page-shell">
       <Section
         kicker="Business model"
-        title="Compassionate capitalism: access first, sustainable growth"
-        subtitle="Freemium keeps speech accessible; paid tiers fund support, compliance, and scale."
+        title="Access-first delivery with sustainable clinical operations"
+        subtitle="Freemium protects access while paid tiers fund support, governance, and scale."
       >
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           {models.map((item) => (
             <FeatureCard key={item.title} title={item.title} description={item.description} tag={item.tag} />
           ))}
@@ -47,33 +47,31 @@ export default function BusinessModelPage() {
       </Section>
 
       <Section
-        kicker="Why freemium is ethical here"
-        title="Those who can pay help those who cannot"
-        subtitle="Hospitals, payers, and partners fund the platform so individuals always have a free path."
+        kicker="Operating logic"
+        title="How sustainability and equity work together"
+        subtitle="Institutional value funds platform reliability while maintaining a no-cost individual path."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
-          <FeatureCard title="Equity first" description="Free access for individuals prevents income from blocking speech." tag="Access" />
-          <FeatureCard title="Institutional value" description="Hospitals pay for controls, support, and compliance they require." tag="Sustain" />
-          <FeatureCard title="Partner ecosystems" description="SDK and licensing extend impact without adding hardware cost." tag="Scale" />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureCard title="Equity first" description="Free access removes income barriers to critical communication." tag="Access" />
+          <FeatureCard title="Institutional value" description="Hospitals pay for controls and uptime they operationally require." tag="Operations" />
+          <FeatureCard title="Partner scale" description="SDK adoption expands impact without adding hardware burden." tag="Scale" />
         </div>
       </Section>
 
       <Section
         kicker="Unit economics"
-        title="Sustainable without harming access"
-        subtitle="Software margins fund support and research; volume lowers per-site costs over time."
+        title="Sustainable growth without compromising patient access"
+        subtitle="Software margins fund quality, compliance, and ongoing accessibility improvements."
       >
-        <div className="glass rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-secondary text-sm space-y-2">
-          <p className="text-primary text-lg font-semibold">Logic, not just pricing</p>
-          <ul className="space-y-1.5">
-            <li>- Free users grow usage data and trust, creating demand for paid clinical controls.</li>
-            <li>- Site licenses and reimbursements cover support, compliance, and uptime.</li>
-            <li>- SDK licensing spreads fixed R&D across partners, lowering marginal costs.</li>
+        <div className="surface-subtle rounded-[var(--radius-lg)] p-4 text-sm text-secondary">
+          <p className="text-lg font-semibold text-primary">Core mechanics</p>
+          <ul className="mt-3 space-y-2">
+            <li>- Free usage drives adoption and trust in care settings.</li>
+            <li>- Site licenses and reimbursement support operational support layers.</li>
+            <li>- SDK licensing spreads fixed R&amp;D across partner ecosystems.</li>
           </ul>
         </div>
       </Section>
     </div>
   );
 }
-
-

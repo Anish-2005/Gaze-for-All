@@ -1,13 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const footerLinks = [
-  { label: "Problem", href: "/problem" },
-  { label: "Solution", href: "/solution" },
+const productLinks = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Product", href: "/product" },
+  { label: "Hospitals", href: "/for-hospitals" },
   { label: "Impact", href: "/impact" },
-  { label: "For Hospitals", href: "/for-hospitals" },
+];
+
+const companyLinks = [
+  { label: "Problem", href: "/problem" },
+  { label: "Solution", href: "/solution" },
+  { label: "Business Model", href: "/business-model" },
+  { label: "Roadmap", href: "/roadmap" },
 ];
 
 const policyLinks = [
@@ -18,18 +23,21 @@ const policyLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-14 border-t border-[rgba(var(--border),0.85)] pt-10 text-sm text-secondary">
-      <div className="surface-card rounded-3xl p-6 sm:p-8">
-        <div className="grid gap-8 lg:grid-cols-4">
+    <footer className="mt-10 border-t border-[rgba(var(--border),0.8)] pt-8 text-sm text-secondary sm:mt-12 sm:pt-10">
+      <div className="surface-card rounded-[var(--radius-xl)] p-5 sm:p-7">
+        <div className="grid gap-6 sm:gap-7 lg:grid-cols-4">
           <div className="space-y-3 lg:col-span-2">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] shadow-soft">
-                <Image src="/logo.svg" alt="Gaze for All logo" width={24} height={24} />
+                <Image src="/logo.svg" alt="Gaze for All logo" width={23} height={23} />
               </div>
-              <p className="text-lg font-semibold text-primary">Gaze for All</p>
+              <div>
+                <p className="text-base font-semibold text-primary sm:text-lg">Gaze for All</p>
+                <p className="text-xs text-secondary">Inclusive communication across care settings.</p>
+              </div>
             </div>
-            <p className="max-w-xl text-secondary">
-              Accessible gaze communication for patients, hospitals, and partners who need secure, rapid deployment without specialized hardware.
+            <p className="max-w-xl text-sm text-secondary sm:text-[0.96rem]">
+              Software-only gaze communication for patients, clinicians, and care teams that need secure deployment without specialized hardware.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="token-pill">Local First</span>
@@ -38,48 +46,51 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">Navigate</p>
-            <ul className="space-y-1.5">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link className="hover:text-primary" href={link.href}>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">Contact</p>
-            <div className="space-y-1.5">
-              <p>hello@gaze-for-all.org</p>
-              <p>+1 (555) 011-2040</p>
-              <p>Boston, MA</p>
-            </div>
-            <div className="pt-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">Policy</p>
-              <div className="mt-1.5 flex flex-col gap-1.5">
-                {policyLinks.map((link) => (
-                  <Link key={link.href} className="hover:text-primary" href={link.href}>
-                    {link.label}
-                  </Link>
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:col-span-2 lg:grid-cols-3">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-secondary">Product</p>
+              <ul className="space-y-1.5">
+                {productLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link className="hover:text-primary" href={link.href}>
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
+            </div>
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-secondary">Company</p>
+              <ul className="space-y-1.5">
+                {companyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link className="hover:text-primary" href={link.href}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-secondary">Policy</p>
+              <ul className="space-y-1.5">
+                {policyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link className="hover:text-primary" href={link.href}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-2 border-t border-[rgba(var(--border),0.8)] pt-4 text-xs text-secondary sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-2 border-t border-[rgba(var(--border),0.8)] pt-4 text-xs text-secondary sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {new Date().getFullYear()} Gaze for All. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link className="hover:text-primary" href="/business-model">
-              Partnerships
-            </Link>
-            <Link className="hover:text-primary" href="/roadmap">
-              Roadmap
-            </Link>
+          <div className="flex items-center gap-4">
+            <span>hello@gaze-for-all.org</span>
+            <span className="hidden sm:inline">+1 (555) 011-2040</span>
           </div>
         </div>
       </div>
