@@ -6,28 +6,28 @@ import { Section } from "@/components/Section";
 export const metadata: Metadata = {
   title: "How it works | Gaze for All",
   description:
-    "Eye detection, gaze mapping, AI intent prediction, and voice outputâ€"all on a webcam with lightweight ONNX models and local inference.",
+    "Eye detection, gaze mapping, AI intent prediction, and voice output on a webcam with lightweight ONNX models and local inference.",
 };
 
 const steps = [
   {
     title: "Eye detection",
-    description: "The webcam tracks eyes and face landmarks, adjusting for lighting and head movement.",
+    description: "The webcam tracks eyes and face landmarks while adjusting for lighting and head movement.",
     tag: "Step 1",
   },
   {
     title: "Gaze mapping",
-    description: "A calibration-light grid maps gaze to screen targets without special hardware.",
+    description: "A quick calibration grid maps gaze to screen targets without special hardware.",
     tag: "Step 2",
   },
   {
     title: "AI prediction",
-    description: "Lightweight models run locally to predict intent with minimal latency and adapt to each user.",
+    description: "Lightweight models run locally to predict intent with low latency and adapt to each user.",
     tag: "Step 3",
   },
   {
     title: "Voice output",
-    description: "Predicted intent turns into spoken audio or textâ€"audible confirmation reduces anxiety for patients and caregivers.",
+    description: "Predicted intent turns into spoken audio or text so teams can confirm meaning immediately.",
     tag: "Step 4",
   },
 ];
@@ -38,7 +38,7 @@ export default function HowItWorksPage() {
       <Section
         kicker="How it works"
         title="From gaze to voice in four steps"
-        subtitle="Computation stays local for speed and privacy; cloud is optional for preferences and care notes."
+        subtitle="Computation stays local for speed and privacy. Cloud is optional for preferences and care notes."
         id="demo"
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -47,9 +47,9 @@ export default function HowItWorksPage() {
           ))}
         </div>
         <div className="mt-4 flex flex-wrap gap-3">
-          <CTAButton href="/product">View features</CTAButton>
+          <CTAButton href="/product">View Features</CTAButton>
           <CTAButton href="/how-to-use" variant="ghost">
-            Setup in 4 steps
+            Setup In 4 Steps
           </CTAButton>
         </div>
       </Section>
@@ -57,12 +57,12 @@ export default function HowItWorksPage() {
       <Section
         kicker="Technology"
         title="Lightweight by design"
-        subtitle="We use small ONNX models that run on CPUs to keep it reliable on standard hospital and home devices."
+        subtitle="Small ONNX models run on CPUs to keep the experience reliable on standard hospital and home devices."
       >
         <div className="grid gap-4 sm:grid-cols-3">
           <FeatureCard
             title="Local inference"
-            description="Works offline for reliability and privacy; optional sync when connectivity is available."
+            description="Works offline for reliability and privacy, with optional sync when connectivity is available."
             tag="Private"
           />
           <FeatureCard
@@ -72,30 +72,30 @@ export default function HowItWorksPage() {
           />
           <FeatureCard
             title="Low friction"
-            description="No dongles, no firmware. A browser-like experience with clear voice confirmations for every action."
+            description="No dongles or firmware. The flow keeps interactions clear for patients and caregivers."
             tag="Practical"
           />
         </div>
       </Section>
 
       <Section
-        kicker="Privacy & safety"
+        kicker="Privacy and safety"
         title="Protect patients while they speak"
-        subtitle="Local inference, no raw video storage, and clear consent keep data safe."
+        subtitle="Local inference, no raw video storage, and clear consent controls keep data handling dependable."
       >
         <div className="grid gap-4 sm:grid-cols-3">
           <FeatureCard
             title="Local by default"
-            description="Eye tracking and intent prediction run on the device; connectivity is optional for sync."
+            description="Eye tracking and intent prediction run on-device, with network use optional."
             tag="Private"
           />
           <FeatureCard
             title="No raw video stored"
-            description="We do not store or stream raw video; only necessary telemetry is kept when enabled."
+            description="The platform does not store or stream raw video by default."
             tag="Safe"
           />
           <FeatureCard
-            title="Consent-first"
+            title="Consent-first controls"
             description="Role-based access and export controls keep clinicians, patients, and families aligned."
             tag="Clear"
           />
@@ -104,4 +104,3 @@ export default function HowItWorksPage() {
     </div>
   );
 }
-

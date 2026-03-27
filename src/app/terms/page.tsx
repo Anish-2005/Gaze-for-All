@@ -14,12 +14,13 @@ export default function TermsPage() {
       subtitle="Summary of acceptable use and responsibilities. Full legal terms available on request."
     >
       <ul className="space-y-3 text-secondary text-sm">
-        <li>â€¢ Clinical deployments require appropriate consent and governance</li>
-        <li>â€¢ Do not use to provide emergency medical advice; tool supports communication</li>
-        <li>â€¢ Data handling follows HIPAA-aligned practices where applicable</li>
-        <li>â€¢ Contact: legal@gaze-for-all.org</li>
+        <li>- Clinical deployments require appropriate consent and governance</li>
+        <li>- Do not use to provide emergency medical advice; tool supports communication</li>
+        <li>- Data handling follows HIPAA-aligned practices where applicable</li>
+        <li>- Contact: legal@gaze-for-all.org</li>
       </ul>
     </Section>
   );
 }
+
 
