@@ -46,13 +46,11 @@ export function ThemeToggle({ compact = false }: Props) {
     <button
       type="button"
       onClick={toggle}
-      className={`inline-flex items-center gap-2 rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface))] px-3 py-2 text-sm font-medium text-primary transition-colors hover:border-[rgb(var(--accent))] ${compact ? "w-full justify-center" : ""}`}
+      className={`inline-flex items-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary transition-colors hover:border-[rgba(var(--accent),0.45)] hover:text-primary ${compact ? "w-full justify-center" : ""}`}
       aria-label="Toggle theme"
     >
-      <span className="text-xs uppercase tracking-[0.14em] text-secondary">
-        {mode === "dark" ? "Night" : "Day"}
-      </span>
-      <span className="h-2 w-2 rounded-full bg-[rgb(var(--accent))]" aria-hidden />
+      <span>{mode === "dark" ? "Dark" : "Light"}</span>
+      <span className={`h-2.5 w-2.5 rounded-full ${mode === "dark" ? "bg-[rgb(var(--accent))]" : "bg-[rgb(var(--success))]"}`} aria-hidden />
     </button>
   );
 }

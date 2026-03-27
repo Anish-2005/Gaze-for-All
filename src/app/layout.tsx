@@ -21,7 +21,7 @@ const sans = Inter({
 export const metadata: Metadata = {
   title: "Gaze for All | Voice without hardware",
   description:
-    "Software-only gaze communication for ALS, paralysis, and ICU patients. Runs on any webcam to restore a voice—affordable, secure, and deployable in minutes.",
+    "Software-only gaze communication for ALS, paralysis, and ICU patients. Runs on any webcam to restore a voice - affordable, secure, and deployable in minutes.",
   metadataBase: new URL("https://gaze-for-all.org"),
   icons: {
     icon: "/logo.svg",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gaze for All | Voice without hardware",
     description:
-      "Webcam-based eye tracking that gives every patient a voice—no $10k hardware required.",
+      "Webcam-based eye tracking that gives every patient a voice - no $10k hardware required.",
     url: "https://gaze-for-all.org",
     siteName: "Gaze for All",
     type: "website",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gaze for All | Voice without hardware",
     description:
-      "Webcam-based eye tracking that gives every patient a voice—no $10k hardware required.",
+      "Webcam-based eye tracking that gives every patient a voice - no $10k hardware required.",
   },
 };
 
@@ -72,23 +72,23 @@ export default function RootLayout({
             })();
           `}
         </Script>
-        <Script
-          src="/umami.js"
-          strategy="afterInteractive"
-        />
+        <Script src="/umami.js" strategy="afterInteractive" />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-slate-900"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[rgb(var(--surface))] focus:px-3 focus:py-2 focus:text-primary focus:shadow-soft"
         >
           Skip to content
         </a>
         <div className="relative min-h-screen bg-[rgb(var(--bg))]">
           <div className="absolute inset-0 pointer-events-none" aria-hidden>
-            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(var(--accent),0.12),transparent_35%)]" />
+            <div className="h-full w-full bg-[radial-gradient(circle_at_18%_10%,rgba(var(--accent),0.14),transparent_34%)]" />
+            <div className="absolute inset-0 opacity-35 grid-highlight" />
           </div>
-          <div className="relative mx-auto flex min-h-screen w-full max-w-screen-2xl flex-col px-6 pb-14 sm:px-10 lg:px-14">
+          <div className="relative mx-auto flex min-h-screen w-full max-w-[1240px] flex-col px-5 pb-16 sm:px-8 lg:px-10">
             <Navbar />
-            <main id="main" className="flex-1 pt-8 sm:pt-10 lg:pt-12">{children}</main>
+            <main id="main" className="flex-1 pt-8 sm:pt-10 lg:pt-11">
+              {children}
+            </main>
             <Footer />
           </div>
           <BackToTop />
