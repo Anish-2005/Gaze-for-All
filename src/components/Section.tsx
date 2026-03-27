@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 export type SectionProps = {
@@ -12,25 +12,28 @@ export type SectionProps = {
   id?: string;
 };
 
-const fadeIn = {
-  initial: { opacity: 0, y: 12 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.6, ease: "easeOut" as const },
-};
-
 export function Section({ kicker, title, subtitle, children, className = "", id }: SectionProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <motion.section id={id} className={`surface-card mb-14 flex flex-col gap-6 rounded-3xl p-7 sm:p-9 lg:p-10 ${className}`} {...fadeIn}>
-      <div className="space-y-3">
+    <motion.section
+      id={id}
+      className={`surface-card mb-6 flex flex-col gap-[var(--space-stack)] rounded-[var(--radius-xl)] p-[var(--space-section)] sm:mb-8 lg:mb-10 ${className}`}
+      initial={reduceMotion ? undefined : { opacity: 0, y: 8 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: 0.32, ease: "easeOut" }}
+    >
+      <div className="space-y-2 sm:space-y-3">
         {kicker ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">{kicker}</p>
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-secondary sm:text-[0.7rem]">{kicker}</p>
         ) : null}
-        <h2 className="text-2xl leading-tight text-primary sm:text-3xl lg:text-4xl">{title}</h2>
-        {subtitle ? <p className="max-w-3xl text-base text-secondary sm:text-lg">{subtitle}</p> : null}
+        <h2 className="text-[clamp(1.35rem,1.18rem+1vw,2.3rem)] leading-[1.15] text-primary">{title}</h2>
+        {subtitle ? (
+          <p className="max-w-3xl text-[clamp(0.95rem,0.9rem+0.25vw,1.1rem)] text-secondary">{subtitle}</p>
+        ) : null}
       </div>
       {children}
     </motion.section>
   );
 }
-

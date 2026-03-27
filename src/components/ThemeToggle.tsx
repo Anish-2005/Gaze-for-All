@@ -1,7 +1,7 @@
 "use client";
 
 import { Moon, Palette, Sun } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { MouseEvent, useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "gfa-theme";
 
@@ -17,6 +17,12 @@ type ThemeConfig = {
 type Props = {
   compact?: boolean;
   iconOnly?: boolean;
+};
+
+type ThemeTransitionApi = {
+  startViewTransition?: (callback: () => void) => {
+    finished: Promise<void>;
+  };
 };
 
 const THEMES: ThemeConfig[] = [
@@ -50,6 +56,12 @@ function getNextTheme(current: ThemeMode): ThemeMode {
   return THEME_ORDER[next];
 }
 
+function setThemeSwitchOrigin(event: MouseEvent<HTMLButtonElement>) {
+  const root = document.documentElement;
+  root.style.setProperty("--theme-switch-x", `${event.clientX}px`);
+  root.style.setProperty("--theme-switch-y", `${event.clientY}px`);
+}
+
 export function ThemeToggle({ compact = false, iconOnly = false }: Props) {
   const [mode, setMode] = useState<ThemeMode>("light");
 
@@ -61,29 +73,55 @@ export function ThemeToggle({ compact = false, iconOnly = false }: Props) {
 
   const activeTheme = useMemo(() => THEMES.find((theme) => theme.id === mode) ?? THEMES[0], [mode]);
 
-  const toggle = () => {
-    const next = getNextTheme(mode);
+  const performThemeChange = (next: ThemeMode) => {
     setMode(next);
     applyTheme(next);
     window.localStorage.setItem(STORAGE_KEY, next);
   };
 
+  const toggle = (event: MouseEvent<HTMLButtonElement>) => {
+    const next = getNextTheme(mode);
+    setThemeSwitchOrigin(event);
+
+    const doc = document as Document & ThemeTransitionApi;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const root = document.documentElement;
+
+    if (!doc.startViewTransition || reduceMotion) {
+      performThemeChange(next);
+      return;
+    }
+
+    root.classList.add("theme-transitioning");
+
+    const transition = doc.startViewTransition(() => {
+      performThemeChange(next);
+    });
+
+    transition.finished.finally(() => {
+      root.classList.remove("theme-transitioning");
+    });
+  };
+
+  const icon =
+    mode === "light" ? (
+      <Sun className="h-4 w-4 text-primary transition-transform duration-300 group-hover:rotate-12" aria-hidden />
+    ) : mode === "dark" ? (
+      <Moon className="h-4 w-4 text-primary transition-transform duration-300 group-hover:-rotate-12" aria-hidden />
+    ) : (
+      <Palette className="h-4 w-4 text-primary transition-transform duration-300 group-hover:rotate-12" aria-hidden />
+    );
+
   return (
     <button
       type="button"
       onClick={toggle}
-      className={`inline-flex items-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] text-xs font-semibold uppercase tracking-[0.1em] text-secondary transition-colors hover:border-[rgba(var(--accent),0.45)] hover:text-primary ${iconOnly ? "h-10 w-10 justify-center p-0" : "px-3 py-2"} ${compact ? "w-full justify-center" : ""}`}
+      className={`group inline-flex items-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] text-xs font-semibold uppercase tracking-[0.1em] text-secondary transition-colors hover:border-[rgba(var(--accent),0.45)] hover:text-primary ${iconOnly ? "h-10 w-10 justify-center p-0" : "px-3 py-2"} ${compact ? "w-full justify-center" : ""}`}
       aria-label={`Change theme. Current: ${activeTheme.label}`}
       title={`Theme: ${activeTheme.label}`}
     >
       {iconOnly ? (
-        mode === "light" ? (
-          <Sun className="h-4 w-4 text-primary" aria-hidden />
-        ) : mode === "dark" ? (
-          <Moon className="h-4 w-4 text-primary" aria-hidden />
-        ) : (
-          <Palette className="h-4 w-4 text-primary" aria-hidden />
-        )
+        icon
       ) : (
         <>
           <span>{activeTheme.label}</span>

@@ -1,26 +1,41 @@
 <svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="dg1" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0B1E35"/>
-      <stop offset="1" stop-color="#152E4C"/>
+      <stop stop-color="#1B3250"/>
+      <stop offset="1" stop-color="#233E5F"/>
     </linearGradient>
+    <radialGradient id="haloA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(310 180) rotate(90) scale(300 430)">
+      <stop stop-color="#86D2FF" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#86D2FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1270 210) rotate(90) scale(260 380)">
+      <stop stop-color="#8FEBCB" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#8FEBCB" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
   <rect width="1600" height="1000" fill="url(#dg1)"/>
-  <g opacity="0.34" stroke="#4FA4EC" stroke-width="1.1">
-    <path d="M120 940L640 420L980 640L1540 140"/>
-    <path d="M-120 820L520 260L880 520L1700 40"/>
-    <path d="M-80 680L540 170L940 450L1710 -40"/>
+  <rect width="1600" height="1000" fill="url(#haloA)"/>
+  <rect width="1600" height="1000" fill="url(#haloB)"/>
+
+  <g opacity="0.34" stroke="#8CCBFF" stroke-width="1.15" fill="none">
+    <path d="M-120 250C120 130 360 150 580 230C790 305 1030 320 1720 180"/>
+    <path d="M-120 360C140 240 390 260 620 340C840 420 1080 430 1720 310"/>
+    <path d="M-140 500C100 390 390 420 650 500C920 580 1180 590 1720 470"/>
+    <path d="M-120 660C140 540 430 570 700 650C980 730 1240 735 1720 610"/>
   </g>
-  <g opacity="0.3">
-    <circle cx="250" cy="170" r="6" fill="#72C6FF"/>
-    <circle cx="510" cy="210" r="4" fill="#72C6FF"/>
-    <circle cx="930" cy="140" r="5" fill="#72C6FF"/>
-    <circle cx="1180" cy="290" r="5" fill="#72C6FF"/>
-    <circle cx="1460" cy="210" r="4" fill="#72C6FF"/>
-    <circle cx="1320" cy="560" r="6" fill="#72C6FF"/>
+
+  <g opacity="0.18" stroke="#A2D8FF" stroke-width="1">
+    <ellipse cx="280" cy="160" rx="190" ry="82"/>
+    <ellipse cx="1250" cy="200" rx="240" ry="104"/>
+    <ellipse cx="930" cy="760" rx="260" ry="112"/>
   </g>
-  <g opacity="0.26" stroke="#6FE8C1" stroke-width="0.9">
-    <path d="M180 920C320 780 460 690 630 650C810 610 1020 520 1320 360"/>
-    <path d="M280 990C470 790 630 700 840 640C1070 580 1290 490 1590 300"/>
+
+  <g opacity="0.28" fill="#B7EAFF">
+    <circle cx="210" cy="220" r="4.4"/>
+    <circle cx="430" cy="200" r="3.4"/>
+    <circle cx="780" cy="190" r="3.7"/>
+    <circle cx="1160" cy="270" r="4.2"/>
+    <circle cx="1360" cy="220" r="3.3"/>
   </g>
 </svg>

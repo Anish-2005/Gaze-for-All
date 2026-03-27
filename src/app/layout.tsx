@@ -85,9 +85,9 @@ export default function RootLayout({
             <div className="h-full w-full bg-[radial-gradient(circle_at_18%_10%,rgba(var(--accent),0.14),transparent_34%)]" />
             <div className="absolute inset-0 opacity-35 grid-highlight" />
           </div>
-          <div className="relative mx-auto flex min-h-screen w-full max-w-[1240px] flex-col px-5 pb-16 sm:px-8 lg:px-10">
+          <div className="app-container relative flex min-h-screen flex-col pb-12 sm:pb-14 lg:pb-16">
             <Navbar />
-            <main id="main" className="flex-1 pt-8 sm:pt-10 lg:pt-11">
+            <main id="main" className="flex-1 pt-6 sm:pt-8 lg:pt-10">
               {children}
             </main>
             <Footer />
