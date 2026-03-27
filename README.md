@@ -1,209 +1,198 @@
-# 🌟 Gaze for All
+# Gaze for All Web
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+<p align="center">
+  <img src="./public/logo.svg" alt="Gaze for All logo" width="92" />
+</p>
 
-> **Note:** This is an informational website showcasing the Gaze for All concept. The software is currently a work in progress and not yet available for production use.
+<p align="center">
+  <strong>Clinical-grade, software-only gaze communication experience.</strong><br />
+  Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+</p>
 
-## 📖 Overview
+<p align="center">
+  <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-16.1.1-000000?logo=nextdotjs&logoColor=white"></a>
+  <a href="https://www.typescriptlang.org/"><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white"></a>
+  <a href="https://tailwindcss.com/"><img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white"></a>
+  <a href="https://www.framer.com/motion/"><img alt="Framer Motion" src="https://img.shields.io/badge/Framer_Motion-12-0B0D12"></a>
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-22C55E"></a>
+</p>
 
-Gaze for All is an innovative informational website dedicated to promoting accessible, software-only gaze communication technology. Our mission is to empower individuals with limited mobility, particularly in healthcare settings, by enabling them to communicate and interact using only their eye movements.
+---
 
-This website serves as a comprehensive resource for understanding the problem, exploring our proposed solution, and learning about the potential impact of gaze-based communication technology.
+## Product Snapshot
 
-## 🎯 Key Features
+Gaze for All Web is the presentation and product-experience layer for a software-first gaze communication platform.
 
-### 🏥 Healthcare-Focused Solutions
-- **For Hospitals**: Streamlined implementation guides and integration options
-- **Patient-Centric Design**: Intuitive interfaces designed with end-users in mind
-- **Accessibility First**: WCAG 2.1 AA compliant design and development practices
+It is designed to communicate:
+- the clinical problem and solution
+- product capabilities and deployment model
+- impact and business viability
+- trust pillars: accessibility, privacy, and reliability
 
-### 📊 Comprehensive Information Hub
-- **Problem Statement**: Clear explanation of communication barriers faced by patients
-- **Solution Overview**: Detailed breakdown of our gaze-tracking technology
-- **Business Model**: Sustainable monetization strategies for healthcare adoption
-- **Impact Assessment**: Projected benefits and real-world applications
-- **Roadmap**: Development timeline and future enhancements
+This repository is the website/app experience, not a medical device backend.
 
-### 🎨 Modern Web Experience
-- **Mobile-First Design**: Responsive layout optimized for all devices
-- **Dark/Light Theme Toggle**: User preference-based theming with system fallback
-- **Smooth Animations**: Subtle Framer Motion animations for enhanced UX
-- **Fast Performance**: Optimized Next.js 16 with App Router for lightning-fast loading
+---
 
-## 🖼️ Screenshots
+## Visual + UX Direction
 
-### Homepage Hero
-![Homepage Hero](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Homepage+Hero+Section)
-*Benefit-focused landing page with clear value proposition and call-to-actions*
+- Clinical premium visual language (clean, trustworthy, high legibility)
+- Full mobile responsiveness (phone + tablet + desktop)
+- Two curated themes: `ocean` and `dark`
+- Purposeful, low-noise motion with reduced-motion support
+- Strong focus states and keyboard-friendly navigation
 
-### How It Works
-![How It Works](https://via.placeholder.com/800x400/10B981/FFFFFF?text=How+It+Works+Diagram)
-*Interactive explanation of the gaze communication process*
+---
 
-### For Hospitals Page
-![For Hospitals](https://via.placeholder.com/800x400/F59E0B/FFFFFF?text=For+Hospitals+Section)
-*Dedicated resources and information for healthcare institutions*
+## Architecture
 
-## 🛠️ Tech Stack
+```mermaid
+flowchart LR
+  A[App Router Pages<br/>src/app/*] --> B[Reusable UI Primitives<br/>src/components/*]
+  B --> C[Global Design Tokens + Themes<br/>src/app/globals.css]
+  A --> D[Analytics Hooks<br/>src/lib/analytics.ts]
+  E[Static Assets<br/>public/*] --> A
+  C --> A
+```
 
-- **Framework**: Next.js 16 with App Router and TypeScript
-- **Styling**: Tailwind CSS v4 with custom gradients and responsive design
-- **Animations**: Framer Motion for smooth, accessible animations
-- **Icons**: Lucide React for consistent, scalable iconography
-- **Analytics**: Umami for privacy-focused, lightweight analytics
-- **Deployment**: Optimized for Vercel and other Node.js hosting platforms
+---
 
-## 🚀 Getting Started
+## Tech Stack
+
+- **Framework**: Next.js 16.1.1 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 + CSS token system
+- **Motion**: Framer Motion
+- **Icons**: Lucide React
+- **Analytics**: Umami (`public/umami.js`, helper in `src/lib/analytics.ts`)
+
+---
+
+## Local Development
 
 ### Prerequisites
-- Node.js 18+ and npm installed
-- Git for version control
 
-### Installation
+- Node.js 18+
+- npm
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/gaze-for-all.git
-   cd gaze-for-all
-   ```
+### Install
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-3. **Set up environment variables**
-   ```bash
-   # Copy the example environment file
-   cp .env.example .env.local
+### Run
 
-   # Edit .env.local with your configuration
-   # Add your Umami analytics URL and website ID
-   ```
+```bash
+npm run dev
+```
 
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
+Open `http://localhost:3000`.
 
-5. **Open your browser**
-   Visit [http://localhost:3000](http://localhost:3000) to view the website.
-
-### Build for Production
+### Production Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-## 📁 Project Structure
+---
 
-```
-src/
-├── app/
-│   ├── globals.css          # Global styles and Tailwind imports
-│   ├── layout.tsx           # Root layout with theme provider
-│   ├── page.tsx             # Homepage/landing page
-│   ├── accessibility/       # Accessibility information
-│   ├── business-model/      # Business model details
-│   ├── for-hospitals/       # Hospital-specific resources
-│   ├── how-it-works/        # Technical explanation
-│   ├── how-to-use/          # User guide
-│   ├── impact/              # Impact assessment
-│   ├── privacy/             # Privacy policy
-│   ├── problem/             # Problem statement
-│   ├── product/             # Product overview
-│   ├── roadmap/             # Development roadmap
-│   ├── solution/            # Solution details
-│   └── terms/               # Terms of service
-├── components/
-│   ├── BackToTop.tsx        # Scroll-to-top functionality
-│   ├── CTAButton.tsx        # Call-to-action buttons
-│   ├── FeatureCard.tsx      # Feature showcase cards
-│   ├── Footer.tsx           # Site footer
-│   ├── Navbar.tsx           # Navigation header
-│   ├── Section.tsx          # Reusable section wrapper
-│   └── ThemeToggle.tsx      # Dark/light theme switcher
-└── lib/
-    └── analytics.ts         # Umami analytics integration
-public/
-├── logo.svg                 # Brand logo and favicon
-└── umami.js                 # Analytics script
-```
+## Available Scripts
 
-## 🎨 Customization
-
-### Theming
-The website supports both light and dark themes:
-- User preference stored in `localStorage` (`gfa-theme`)
-- System preference detection as fallback
-- CSS class `dark` applied to `<html>` element
-
-### Branding
-- Logo: Update `public/logo.svg` for custom branding
-- Colors: Modify Tailwind config in `tailwind.config.ts`
-- Typography: Customize font families in `globals.css`
-
-## 📊 Analytics
-
-Umami analytics is integrated for privacy-focused tracking:
-- Page views and user interactions
-- Scroll depth measurement
-- Custom events for CTA clicks
-
-Configure your Umami instance in `src/app/layout.tsx` and `.env.local`.
-
-## ♿ Accessibility
-
-Gaze for All prioritizes accessibility:
-- **WCAG 2.1 AA Compliance**: Comprehensive accessibility standards
-- **Keyboard Navigation**: Full keyboard accessibility
-- **Screen Reader Support**: Proper ARIA labels and semantic HTML
-- **Focus Management**: Visible focus indicators and logical tab order
-- **Color Contrast**: High contrast ratios for readability
-- **Mobile Accessibility**: Large tap targets (44px minimum)
-
-## 🤝 Contributing
-
-We welcome contributions to improve the informational content and user experience:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow TypeScript best practices
-- Maintain accessibility standards
-- Test on multiple devices and browsers
-- Update documentation for any new features
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🚧 Work in Progress
-
-**Important Notice:** Gaze for All is currently in the conceptual and development phase. This website serves as an informational platform to share our vision and gather feedback. The actual gaze communication software is under active development and not yet available for use.
-
-### Current Status
-- ✅ Website design and content
-- ✅ Information architecture
-- 🔄 Technical implementation planning
-- ⏳ Software development
-- ⏳ Testing and validation
-- ⏳ Healthcare partner integrations
-
-### Roadmap Highlights
-- Q2 2026: Prototype development
-- Q3 2026: Clinical trials planning
-- Q4 2026: Beta release for select hospitals
-- 2027: Full commercial launch
+- `npm run dev` - start local dev server
+- `npm run build` - production build
+- `npm run start` - run production server
+- `npm run lint` - run ESLint
 
 ---
 
-*Built with ❤️ for accessibility and innovation in healthcare communication.*
+## Project Structure
+
+```text
+src/
+  app/
+    layout.tsx
+    globals.css
+    page.tsx
+    icon.svg
+    accessibility/page.tsx
+    business-model/page.tsx
+    for-hospitals/page.tsx
+    how-it-works/page.tsx
+    how-to-use/page.tsx
+    impact/page.tsx
+    privacy/page.tsx
+    problem/page.tsx
+    product/page.tsx
+    roadmap/page.tsx
+    solution/page.tsx
+    terms/page.tsx
+  components/
+    BackToTop.tsx
+    CTAButton.tsx
+    FeatureCard.tsx
+    Footer.tsx
+    Navbar.tsx
+    Section.tsx
+    ThemeToggle.tsx
+  lib/
+    analytics.ts
+public/
+  logo.svg
+  umami.js
+  theme-*.svg
+```
+
+---
+
+## Responsive QA Matrix
+
+Target widths used for acceptance:
+- `360`
+- `390`
+- `430`
+- `768`
+- `1024`
+- `1280+`
+
+Core checks:
+- no horizontal overflow
+- readable type scale and spacing
+- stable navbar/menu behavior
+- CTA and card layouts remain usable
+- keyboard navigation remains intact
+
+---
+
+## Accessibility and Privacy
+
+### Accessibility
+- Semantic page structure
+- Focus-visible support
+- Touch targets sized for mobile ergonomics
+- Reduced-motion aware animation handling
+
+### Privacy
+- Local-first UX messaging
+- Minimal analytics event tracking through Umami helpers
+- No sensitive patient-data processing in this web layer
+
+---
+
+## Branding Assets
+
+- Primary logo: [`public/logo.svg`](./public/logo.svg)
+- App icon/fav icon source: [`src/app/icon.svg`](./src/app/icon.svg)
+- Theme backgrounds: `public/theme-ocean-atmosphere.svg`, `public/theme-dark-atmosphere.svg`
+
+---
+
+## Contributing
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for contribution workflow, standards, and PR checklist.
+
+---
+
+## License
+
+MIT - see [`LICENSE`](./LICENSE).

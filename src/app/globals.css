@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 :root,
-[data-theme="light"] {
+[data-theme="ocean"] {
   --theme-switch-x: 50vw;
   --theme-switch-y: 14vh;
   --theme-transition-ms: 520ms;
   --overlay-top: 0.78;
   --overlay-bottom: 0.86;
-  --bg: 244 247 251;
-  --bg-elevated: 250 252 255;
+  --bg: 238 247 250;
+  --bg-elevated: 246 252 255;
   --surface: 255 255 255;
-  --surface-2: 247 250 253;
-  --text: 16 28 46;
-  --muted: 77 92 114;
-  --accent: 15 111 191;
-  --accent-strong: 8 83 145;
-  --accent-soft: 217 235 250;
-  --success: 15 150 110;
-  --border: 212 224 238;
-  --ring: 14 101 170;
-  --shadow-color: 16 37 63;
-  --glow-a: 15 111 191;
-  --glow-b: 15 150 110;
-  --theme-art: url("/theme-light-atmosphere.svg");
+  --surface-2: 242 250 252;
+  --text: 11 43 58;
+  --muted: 72 102 116;
+  --accent: 2 135 167;
+  --accent-strong: 4 104 129;
+  --accent-soft: 210 239 245;
+  --success: 12 157 123;
+  --border: 192 221 228;
+  --ring: 2 120 149;
+  --shadow-color: 10 43 58;
+  --glow-a: 2 135 167;
+  --glow-b: 12 157 123;
+  --theme-art: url("/theme-ocean-atmosphere.svg");
 
   --space-section: clamp(1.25rem, 1rem + 1.2vw, 2.5rem);
   --space-stack: clamp(0.9rem, 0.7rem + 0.5vw, 1.5rem);
@@ -49,48 +49,6 @@
   --glow-a: 108 194 255;
   --glow-b: 120 224 198;
   --theme-art: url("/theme-dark-atmosphere.svg");
-}
-
-[data-theme="ocean"] {
-  --overlay-top: 0.78;
-  --overlay-bottom: 0.86;
-  --bg: 238 247 250;
-  --bg-elevated: 246 252 255;
-  --surface: 255 255 255;
-  --surface-2: 242 250 252;
-  --text: 11 43 58;
-  --muted: 72 102 116;
-  --accent: 2 135 167;
-  --accent-strong: 4 104 129;
-  --accent-soft: 210 239 245;
-  --success: 12 157 123;
-  --border: 192 221 228;
-  --ring: 2 120 149;
-  --shadow-color: 10 43 58;
-  --glow-a: 2 135 167;
-  --glow-b: 12 157 123;
-  --theme-art: url("/theme-ocean-atmosphere.svg");
-}
-
-[data-theme="graphite"] {
-  --overlay-top: 0.78;
-  --overlay-bottom: 0.86;
-  --bg: 16 21 30;
-  --bg-elevated: 22 28 39;
-  --surface: 29 36 50;
-  --surface-2: 34 43 58;
-  --text: 236 241 248;
-  --muted: 167 178 196;
-  --accent: 230 169 75;
-  --accent-strong: 196 133 45;
-  --accent-soft: 70 56 34;
-  --success: 70 186 152;
-  --border: 56 66 83;
-  --ring: 236 182 96;
-  --shadow-color: 5 8 14;
-  --glow-a: 230 169 75;
-  --glow-b: 70 186 152;
-  --theme-art: url("/theme-graphite-atmosphere.svg");
 }
 
 * {
