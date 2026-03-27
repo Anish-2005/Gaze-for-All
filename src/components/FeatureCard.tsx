@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
@@ -38,3 +38,4 @@ export function FeatureCard({ title, description, tag, icon }: FeatureCardProps)
     </motion.div>
   );
 }
+

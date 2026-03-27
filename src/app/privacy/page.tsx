@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
@@ -14,11 +14,12 @@ export default function PrivacyPage() {
       subtitle="We minimize data collection, keep processing local by default, and provide exportable logs for compliance reviews."
     >
       <ul className="space-y-3 text-secondary text-sm">
-        <li>• Local-first inference; optional sync for preferences and vocab</li>
-        <li>• Role-based access for clinical deployments</li>
-        <li>• Exportable logs to support audits and reimbursement documentation</li>
-        <li>• Contact: privacy@gaze-for-all.org</li>
+        <li>â€¢ Local-first inference; optional sync for preferences and vocab</li>
+        <li>â€¢ Role-based access for clinical deployments</li>
+        <li>â€¢ Exportable logs to support audits and reimbursement documentation</li>
+        <li>â€¢ Contact: privacy@gaze-for-all.org</li>
       </ul>
     </Section>
   );
 }
+

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
@@ -40,7 +40,7 @@ export default function ProductPage() {
     },
     {
       title: "Voice cloning",
-      description: "Optional personal voice recreation with consent, keeping the patient’s identity present.",
+      description: "Optional personal voice recreation with consent, keeping the patientâ€™s identity present.",
       tag: "Pro",
     },
     {
@@ -120,19 +120,19 @@ export default function ProductPage() {
           <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4">
             <p className="text-primary text-lg font-semibold">Free</p>
             <ul className="mt-2 space-y-1.5">
-              <li>• Webcam gaze, local processing</li>
-              <li>• Large-target UI with voice feedback</li>
-              <li>• Multilingual speech</li>
-              <li>• Personal use, no cost</li>
+              <li>â€¢ Webcam gaze, local processing</li>
+              <li>â€¢ Large-target UI with voice feedback</li>
+              <li>â€¢ Multilingual speech</li>
+              <li>â€¢ Personal use, no cost</li>
             </ul>
           </div>
           <div className="glass rounded-2xl border border-[rgb(var(--border))] p-4">
             <p className="text-primary text-lg font-semibold">Pro</p>
             <ul className="mt-2 space-y-1.5">
-              <li>• Everything in Free</li>
-              <li>• AI prediction and personalization</li>
-              <li>• Cloud sync and team sharing</li>
-              <li>• Analytics and exports for reimbursement</li>
+              <li>â€¢ Everything in Free</li>
+              <li>â€¢ AI prediction and personalization</li>
+              <li>â€¢ Cloud sync and team sharing</li>
+              <li>â€¢ Analytics and exports for reimbursement</li>
             </ul>
           </div>
         </div>
@@ -140,3 +140,4 @@ export default function ProductPage() {
     </div>
   );
 }
+

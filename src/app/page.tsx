@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import { BadgeDollarSign, Building2, CheckCircle2, Clock3, Crosshair, HeartPulse, Laptop, ShieldCheck, Stethoscope, Users, Workflow } from "lucide-react";
@@ -283,3 +283,4 @@ export default function Home() {
     </div>
   );
 }
+

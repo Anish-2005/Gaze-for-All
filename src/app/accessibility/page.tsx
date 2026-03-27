@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
@@ -14,11 +14,12 @@ export default function AccessibilityPage() {
       subtitle="We aim for WCAG AA contrast, large targets, keyboard support, and dual light/dark modes for strain reduction."
     >
       <ul className="space-y-3 text-secondary text-sm">
-        <li>• Dual themes for low-strain viewing</li>
-        <li>• Large hit areas and focus-visible states</li>
-        <li>• Screen reader-friendly landmarks and skip links</li>
-        <li>• Feedback: accessibility@gaze-for-all.org</li>
+        <li>â€¢ Dual themes for low-strain viewing</li>
+        <li>â€¢ Large hit areas and focus-visible states</li>
+        <li>â€¢ Screen reader-friendly landmarks and skip links</li>
+        <li>â€¢ Feedback: accessibility@gaze-for-all.org</li>
       </ul>
     </Section>
   );
 }
+

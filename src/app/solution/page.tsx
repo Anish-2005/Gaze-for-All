@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { CTAButton } from "@/components/CTAButton";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
@@ -13,7 +13,7 @@ export default function SolutionPage() {
   const pillars = [
     {
       title: "Webcam-based eye tracking",
-      description: "Runs on any modern laptop or bedside PC�"no infrared cameras or proprietary rigs required.",
+      description: "Runs on any modern laptop or bedside PCâ€"no infrared cameras or proprietary rigs required.",
       tag: "Zero hardware",
     },
     {
@@ -38,7 +38,7 @@ export default function SolutionPage() {
       <Section
         kicker="Solution"
         title="A software-only communicator that replaces $10k hardware"
-        subtitle="Gaze for All turns any webcam into a reliable voice channel�"no specialized devices, no procurement lag."
+        subtitle="Gaze for All turns any webcam into a reliable voice channelâ€"no specialized devices, no procurement lag."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {pillars.map((item) => (
@@ -83,7 +83,7 @@ export default function SolutionPage() {
         subtitle="Setting expectations keeps clinicians and families aligned."
       >
         <div className="grid gap-4 sm:grid-cols-3">
-          <FeatureCard title="Not hardware" description="No proprietary cameras or mounts�"use the webcams you already own." tag="Software" />
+          <FeatureCard title="Not hardware" description="No proprietary cameras or mountsâ€"use the webcams you already own." tag="Software" />
           <FeatureCard title="Not experimental" description="Built from proven CV and accessibility patterns with ongoing pilot data." tag="Ready" />
           <FeatureCard title="Not hospital-only" description="Runs in homes, hospices, rehab, and community clinics." tag="Flexible" />
         </div>
@@ -91,4 +91,5 @@ export default function SolutionPage() {
     </div>
   );
 }
+
 

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const footerLinks = [
   { label: "Problem", href: "/problem" },
@@ -80,3 +80,4 @@ export function Footer() {
     </footer>
   );
 }
+

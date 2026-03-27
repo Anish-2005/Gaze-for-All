@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
@@ -66,12 +66,13 @@ export default function BusinessModelPage() {
         <div className="glass rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-5 text-secondary text-sm space-y-2">
           <p className="text-primary text-lg font-semibold">Logic, not just pricing</p>
           <ul className="space-y-1.5">
-            <li>• Free users grow usage data and trust, creating demand for paid clinical controls.</li>
-            <li>• Site licenses and reimbursements cover support, compliance, and uptime.</li>
-            <li>• SDK licensing spreads fixed R&D across partners, lowering marginal costs.</li>
+            <li>â€¢ Free users grow usage data and trust, creating demand for paid clinical controls.</li>
+            <li>â€¢ Site licenses and reimbursements cover support, compliance, and uptime.</li>
+            <li>â€¢ SDK licensing spreads fixed R&D across partners, lowering marginal costs.</li>
           </ul>
         </div>
       </Section>
     </div>
   );
 }
+

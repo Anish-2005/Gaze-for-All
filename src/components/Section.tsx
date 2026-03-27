@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
@@ -33,3 +33,4 @@ export function Section({ kicker, title, subtitle, children, className = "", id 
     </motion.section>
   );
 }
+

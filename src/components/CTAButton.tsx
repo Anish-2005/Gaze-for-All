@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ReactNode } from "react";
 
 export type CTAButtonProps = {
@@ -24,3 +24,4 @@ export function CTAButton({ href, children, variant = "primary", ariaLabel, onCl
     </Link>
   );
 }
+

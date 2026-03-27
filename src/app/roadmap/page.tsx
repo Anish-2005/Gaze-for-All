@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Section } from "@/components/Section";
 
@@ -66,3 +66,4 @@ export default function RoadmapPage() {
     </div>
   );
 }
+
